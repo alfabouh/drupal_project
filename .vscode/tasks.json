@@ -37,19 +37,6 @@
           }
         }
       }
-    },
-    {
-      "label": "Start",
-      "type": "shell",
-      "command": "cd drupal_project",
-      "problemMatcher": []
-    },
-    {
-      "label": "RunBuild",
-      "type": "shell",
-      "command": "ng serve",
-      "problemMatcher": [],
-      "dependsOn": "Start"
     }
   ]
 }
