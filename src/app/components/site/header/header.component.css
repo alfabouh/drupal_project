@@ -7,7 +7,7 @@
 
   #videoHead {
     width: 100%;
-    height: 80%;
+    height: 82.5%;
     object-fit: cover;
     position: absolute;
     top: 0;
@@ -80,31 +80,43 @@
   #container {
     column-count: 2;
     column-gap: 97px;
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
     z-index: 2;
   }
   
+  .container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
   #container {
     color: #fff;
   }
 
-  #p1Col {
+  #first-column{
+    margin-left: 130px;
+    margin-bottom: 340px;
+    margin-top: 130px;
+  }
+
+  #page-title {
     color: var(--White, #FFF);
     font-family: Montserrat;
     font-size: 52px;
-    font-style: normal;
+    font-style: bold;
     font-weight: 700;
     line-height: 60px; /* 115.385% */
   }
 
-  #p2Col {
+  #support-main-description {
     color: var(--White, #FFF);
     font-family: Montserrat;
     font-size: 18px;
@@ -113,5 +125,45 @@
     line-height: 28px; /* 155.556% */
     margin-top: 15px;
   }
-  
 
+  #block-main-wrapper{
+    margin-top: 50px;
+    border-radius: 5px;
+    border: 2px solid var(--icons-1, #F14D34);
+    width: 220px;
+    height: 60px;
+    flex-shrink: 0;
+  }
+  
+  /* #second-column {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+  }
+
+  #support-achievement-title{
+    color: var(--White, #FFF);
+    font-family: Montserrat;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 54px;
+  }
+
+  #one-place > div {
+    color: var(--White, #FFF);
+    font-family: Montserrat;
+   font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: 161px;
+  } */
+  
+/* криво как-то получается. хз как сделать. надо подумать */
