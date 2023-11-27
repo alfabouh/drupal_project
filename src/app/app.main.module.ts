@@ -6,7 +6,9 @@ import { AppComponent } from "./components/main/main.component";
     imports: [
         HeadModule
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    declarations: [
+    ]
 })
 export class AppModule {
 }
