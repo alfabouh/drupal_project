@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { HeadModule } from "./modules/app.head.module";
 import { AppComponent } from "./components/main/main.component";
 
@@ -6,7 +6,9 @@ import { AppComponent } from "./components/main/main.component";
     imports: [
         HeadModule
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    declarations: [
+    ]
 })
 export class AppModule {
 }

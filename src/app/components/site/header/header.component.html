@@ -1,3 +1,53 @@
-<div class="h-1/2 overflow-hidden absolute top-0 left-0">
-    <video class="w-screen" src="/assets/img/video.mp4" autoplay loop> </video>
+<div id="render_head" class="absolute top-0"></div>
+<div id="head" class="mx-24 my-8">
+  <div class="h-32">
+    <div id="content">
+      <img src="/assets/img/drupal-coder.svg" alt="Логотип" id="logo">
+      <div class="mx-12">
+        <head-button innerText="ПОДДЕРЖКА САЙТОВ"></head-button>
+        <head-button innerText="ТАРИФЫ"></head-button>
+        <head-button innerText="НАШИ РАБОТЫ"></head-button>
+        <head-button innerText="ОТЗЫВЫ"></head-button>
+        <head-button innerText="КОНТАКТЫ"></head-button>
+        <head-button id="number" innerText="8 800 222-26-73"></head-button>
+        <head-button id="lang" innerText="RU"></head-button>
+        <img src="/assets/img/arrow-lang.svg" alt="Стрелочка" id="str">
+      </div>
+    </div>
+  </div>
+  
+  <div id="container" class="flex">
+    <div class="w-1/3">
+      <h1 id="page-title">Поддержка <br> сайтов на Drupal</h1>
+      <div id="support-main-description">
+        Сопровождение и поддержка сайтов <br> на CMS Drupal любых версий и запущенности
+      </div>
+      <button id="block-main-wrapper">ТАРИФЫ</button>
+    </div>
+    <div class="w-1/2">
+      <div class="flex">
+        <div class="w-1/4">
+          <drupal-desc titleClass="one-place" titleText="#1" titleImgLink="/assets/img/cup.png" innerText="Drupal-разработчик в России по версии Рейтинга Рунета"></drupal-desc>
+        </div>
+        <div class="w-1/4">
+          <drupal-desc titleClass="common" titleText="3+" innerText="средний опыт специалистов более 3 лет"></drupal-desc>
+        </div>
+        <div class="w-1/4">
+          <drupal-desc titleClass="common" titleText="14" innerText="лет опыта в сфере Drupal"></drupal-desc>
+        </div>
+      </div>
+
+      <div class="flex">
+        <div class="w-1/4">
+          <drupal-desc titleClass="common" titleText="200+" innerText="модулей и тем в формате DrupalGive"></drupal-desc>
+        </div>
+        <div class="w-1/4">
+          <drupal-desc titleClass="common" titleText="35 000" innerText="часов поддержки сайтов на Drupal"></drupal-desc>
+        </div>
+        <div class="w-1/4">
+          <drupal-desc titleClass="common" titleText="200+" innerText="Проектов на поддержке"></drupal-desc>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
