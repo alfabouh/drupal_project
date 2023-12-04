@@ -18,6 +18,7 @@ let maxRenders = 128;
 let strMesh: StringRenderMesh[] = new Array<StringRenderMesh>(maxRenders);
 let WIDTH_PRC: number = 1.0;
 let HEIGHT_PRC: number = 0.86;
+let clock: ThreeJs.Clock = new ThreeJs.Clock;
 
 $(() => {
     renderer = new ThreeJs.WebGLRenderer();
@@ -81,6 +82,7 @@ function initShapes(): void {
 }
 
 export function onrender(): void {
+    let delta: number = clock.getDelta();
     requestAnimationFrame(onrender);
     if (scene !== undefined && camera !== undefined) {
         const renderTarget = new ThreeJs.WebGLRenderTarget(getWinWidth(), getWinHeight());
@@ -129,7 +131,7 @@ export function onrender(): void {
     for (let i: number = 0; i < MaxRenderStrokes; i++) {
         let e: StringRenderMesh = strMesh[i];
         if (e !== undefined) {
-            e.tick();
+            e.tick(delta);
             if (e.shouldRedraw()) {
                 e.redraw();
             }
@@ -154,15 +156,15 @@ class StringRenderMesh {
         this.scene = scene;
         this.constructGeometries();
         this.id = id;
-        this.appendSpeed = Utils.getRandomNum(10, 20);
+        this.appendSpeed = Utils.getRandomNum(12, 18);
     }
 
     public get getAppendSpeed(): number {
         return this.appendSpeed;
     }
 
-    public tick(): void {
-        const factor: number = this.appendSpeed * 5.0E-5;
+    public tick(delta: number): void {
+        const factor: number = delta / this.getAppendSpeed;
         this.appearTick = Math.min(this.appearTick += factor, 1.1);
         if (this.appearTick > 0.5) {
             this.fadeTick = Math.min(this.fadeTick += factor, 1.1);
@@ -243,7 +245,7 @@ class StringRenderMesh {
         this.constructGeometries();
         this.fadeTick = 0;
         this.appearTick = 0;
-        this.appendSpeed = Utils.getRandomNum(10, 20);
+        this.appendSpeed = Utils.getRandomNum(12, 18);
     }
 }
 
@@ -260,9 +262,7 @@ class StringConveyor {
     private genString(): () => string {
         let generatedString: string = "";
         return (): string => {
-            console.log(RenderCharMaxWidth);
             let size: number = (getWinWidth()) / RenderCharMaxWidth;
-            console.log(size);
             while (true) {
                 generatedString += StringConveyor.generateRandomChar();
                 if (generatedString.length > (size * (0.8 + (5 - Utils.getRandomNum(0, 10)) * 0.01))) {
