@@ -11,11 +11,10 @@ let renderer: ThreeJs.Renderer;
 
 let scene: ThreeJs.Object3D;
 let camera: ThreeJs.OrthographicCamera;
-let ticks: number = 0;
 let RenderCharMaxWidth: number = 0;
 let RenderCharMaxHeight: number = 0;
 let MaxRenderStrokes: number = 0;
-let maxRenders = 256;
+let maxRenders = 128;
 let strMesh: StringRenderMesh[] = new Array<StringRenderMesh>(maxRenders);
 let WIDTH_PRC: number = 1.0;
 let HEIGHT_PRC: number = 0.86;
@@ -130,29 +129,23 @@ export function onrender(): void {
     for (let i: number = 0; i < MaxRenderStrokes; i++) {
         let e: StringRenderMesh = strMesh[i];
         if (e !== undefined) {
-            if (ticks % e.getAppendSpeed == 0) {
-                e.addSymbol();
-            }
-            if (e.getFadeFactor() >= 0) {
-                e.tick();
-                if (e.shouldRedraw()) {
-                    e.redraw();
-                }
+            e.tick();
+            if (e.shouldRedraw()) {
+                e.redraw();
             }
         }
     }
-    ticks += 1;
 }
 
 class StringRenderMesh {
-    private currentString: string = "";
-    private strCon: string = "";
     private conveyor: StringConveyor;
     private currentMesh: ThreeJs.Mesh | null = null;
     private currentTextGeometry: TextGeometry | null = null;
     private scene: ThreeJs.Object3D;
     private currentMaterial: ThreeJs.ShaderMaterial | null = null;
-    private fadeTick = -1;
+    private fadeTick = 0;
+    private appearTick = 0;
+    private meshLength = 0;
     private id: number;
     private appendSpeed: number;
 
@@ -161,7 +154,7 @@ class StringRenderMesh {
         this.scene = scene;
         this.constructGeometries();
         this.id = id;
-        this.appendSpeed = Utils.getRandomNum(8, 14);
+        this.appendSpeed = Utils.getRandomNum(10, 20);
     }
 
     public get getAppendSpeed(): number {
@@ -169,19 +162,19 @@ class StringRenderMesh {
     }
 
     public tick(): void {
-        if (this.fadeTick < 0) {
-            this.fadeTick = 0;
-        } else {
-            let deltaSpeed: number = 1 / (this.appendSpeed);
-            this.fadeTick += (1 / (this.strCon.length)) * deltaSpeed;
+        const factor: number = this.appendSpeed * 5.0E-5;
+        this.appearTick = Math.min(this.appearTick += factor, 1.1);
+        if (this.appearTick > 0.5) {
+            this.fadeTick = Math.min(this.fadeTick += factor, 1.1);
         }
         if (this.currentMaterial !== null) {
             this.currentMaterial.uniforms.fadeFactor.value = this.getFadeFactor();
+            this.currentMaterial.uniforms.appearFactor.value = this.getAppearFactor();
         }
     }
 
     public shouldRedraw() {
-        return this.fadeTick > 1.0;
+        return this.fadeTick >= 1.0;
     }
 
     public static fontParams(font: any): TextGeometryParameters {
@@ -219,66 +212,38 @@ class StringRenderMesh {
         return this.fadeTick;
     }
 
-    public addSymbol(): void {
-        if (this.currentString.length !== this.strCon.length) {
-            this.currentString += this.strCon.at(this.currentString.length);
-        } 
-        for (let i: number = 0; i < this.currentString.length * 0.7; i++) {
-            if (Utils.getRandomNum(0, 8) == 0) {
-                this.currentString = Utils.replaceAt(this.currentString, i, StringConveyor.generateRandomChar());
-            }
-        }
-        let newtextGeometry: TextGeometry | null = null;
-        new FontLoader().load('/assets/img/font.json', (font) => {
-            if (this.currentMaterial !== null) {
-                this.removeFromScene();
-                let fparam: TextGeometryParameters = StringRenderMesh.fontParams(font);
-                newtextGeometry = new TextGeometry(this.currentString as string, fparam);
-                newtextGeometry.computeBoundingBox();
-                if (this.fadeTick < 0 && this.currentString.length >= this.strCon.length * 0.75) {
-                    this.tick();
-                }
-                this.currentMaterial.uniforms.textLength.value = (newtextGeometry.boundingBox as ThreeJs.Box3).max.x - (newtextGeometry.boundingBox as ThreeJs.Box3).min.x;
-                let oldPos: ThreeJs.Vector3 = (this.currentMesh as ThreeJs.Mesh).position;
-                this.currentMesh = new ThreeJs.Mesh(newtextGeometry, this.currentMaterial);
-                this.currentMesh.position.set(oldPos.x, oldPos.y, oldPos.z);
-                this.currentTextGeometry = newtextGeometry;
-                this.addToScene();
-            }
-        });
+    public getAppearFactor(): number {
+        return this.appearTick;
     }
 
     private constructGeometries() {
         this.removeFromScene();
         new FontLoader().load('/assets/img/font.json', (font) => {
-            this.currentTextGeometry = new TextGeometry("", StringRenderMesh.fontParams(font));
+            this.currentTextGeometry = new TextGeometry(this.conveyor.getGenString(), StringRenderMesh.fontParams(font));
             this.currentMaterial = new ThreeJs.ShaderMaterial({
                 vertexShader: vTextShader,
                 fragmentShader: fTextShader,
                 uniforms: {
-                    textLength: { value: 0 },
-                    fadeFactor: { value: 0 }
+                    appearFactor: { value: 0 },
+                    fadeFactor: { value: 0 },
+                    meshLength: { value: 0 }
                 }    
             });
             this.currentMesh = new ThreeJs.Mesh(this.currentTextGeometry, this.currentMaterial);
-            this.replace();
+            this.currentTextGeometry.computeBoundingBox();
+            this.meshLength = (this.currentTextGeometry.boundingBox as ThreeJs.Box3).max.x - (this.currentTextGeometry.boundingBox as ThreeJs.Box3).min.x;
+            let offset: number = getWinHeight() - (MaxRenderStrokes * RenderCharMaxHeight * 2.0);
+            this.currentMesh.position.set(0, (this.id * (RenderCharMaxHeight * 2.0)) + offset, 0);
+            this.currentMaterial.uniforms.meshLength.value = this.meshLength;
             this.addToScene();
         });
     }
 
     public redraw(): void {
-        this.currentString = "";
         this.constructGeometries();
-        this.fadeTick = -1;
-    }
-
-    public replace(): void {
-        if (this.currentMesh !== null) {
-            let startpos: number = getWinWidth() * Utils.getRandomNum(0, 20) * 0.01;
-            let offset: number = getWinHeight() - (MaxRenderStrokes * RenderCharMaxHeight * 2.0);
-            this.currentMesh.position.set(startpos, (this.id * (RenderCharMaxHeight * 2.0)) + offset, 0);
-            this.strCon = this.conveyor.getGenString(startpos);
-        }
+        this.fadeTick = 0;
+        this.appearTick = 0;
+        this.appendSpeed = Utils.getRandomNum(10, 20);
     }
 }
 
@@ -287,18 +252,20 @@ class StringConveyor {
         return Utils.getRandomNum(0, 2) == 0 ? '1' : '0';
     }
 
-    public getGenString(startpos: number): string {
-        const genF: any = this.genString(startpos);
+    public getGenString(): string {
+        const genF: any = this.genString();
         return genF();
     }
 
-    private genString(startpos: number): () => string {
+    private genString(): () => string {
         let generatedString: string = "";
         return (): string => {
-            let size: number = (getWinWidth() - startpos) / RenderCharMaxWidth;
+            console.log(RenderCharMaxWidth);
+            let size: number = (getWinWidth()) / RenderCharMaxWidth;
+            console.log(size);
             while (true) {
                 generatedString += StringConveyor.generateRandomChar();
-                if (generatedString.length > size || (generatedString.length > size / 1.5 && Utils.getRandomNum(0, 50) == 0)) {
+                if (generatedString.length > (size * (0.8 + (5 - Utils.getRandomNum(0, 10)) * 0.01))) {
                     break;
                 }
             }
