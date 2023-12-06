@@ -6,17 +6,18 @@
 
 #desc-text {
   color: var(--White, #FFF);
-  font-family: Montserrat;
+  font-family: "Montserrat";
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   opacity: 0.7;
+  white-space: nowrap;
 }
 
 .support-achievement-title{
   color: var(--White, #FFF);
-  font-family: Montserrat non-serif;
+  font-family: "Montserrat" non-serif;
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
@@ -26,7 +27,7 @@
 
 .one-place {
   color: var(--White, #FFF);
-  font-family: Montserrat;
+  font-family: "Montserrat";
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
@@ -37,7 +38,7 @@
 
 .common {
   color: var(--White, #FFF);
-  font-family: Montserrat;
+  font-family: "Montserrat";
   font-size: 24px;
   font-style: normal;
   font-weight: 700;

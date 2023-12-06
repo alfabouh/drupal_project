@@ -51,7 +51,7 @@ function getWinHeight(): number {
 }
 
 async function calcFontBounds() {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         new FontLoader().load('/assets/img/font.json', (font) => {
             let fparam: TextGeometryParameters = StringRenderMesh.fontParams(font);
             let newtextGeometry: TextGeometry = new TextGeometry("0", fparam);
@@ -220,24 +220,26 @@ class StringRenderMesh {
 
     private constructGeometries() {
         this.removeFromScene();
-        new FontLoader().load('/assets/img/font.json', (font) => {
-            this.currentTextGeometry = new TextGeometry(this.conveyor.getGenString(), StringRenderMesh.fontParams(font));
-            this.currentMaterial = new ThreeJs.ShaderMaterial({
-                vertexShader: vTextShader,
-                fragmentShader: fTextShader,
-                uniforms: {
-                    appearFactor: { value: 0 },
-                    fadeFactor: { value: 0 },
-                    meshLength: { value: 0 }
-                }    
+        this.conveyor.getGenString().then(e => {
+            new FontLoader().load('/assets/img/font.json', (font) => {
+                this.currentTextGeometry = new TextGeometry(e as string, StringRenderMesh.fontParams(font));
+                this.currentMaterial = new ThreeJs.ShaderMaterial({
+                    vertexShader: vTextShader,
+                    fragmentShader: fTextShader,
+                    uniforms: {
+                        appearFactor: { value: 0 },
+                        fadeFactor: { value: 0 },
+                        meshLength: { value: 0 }
+                    }    
+                });
+                this.currentMesh = new ThreeJs.Mesh(this.currentTextGeometry, this.currentMaterial);
+                this.currentTextGeometry.computeBoundingBox();
+                this.meshLength = (this.currentTextGeometry.boundingBox as ThreeJs.Box3).max.x - (this.currentTextGeometry.boundingBox as ThreeJs.Box3).min.x;
+                let offset: number = getWinHeight() - (MaxRenderStrokes * RenderCharMaxHeight * 2.0);
+                this.currentMesh.position.set(0, (this.id * (RenderCharMaxHeight * 2.0)) + offset, 0);
+                this.currentMaterial.uniforms.meshLength.value = this.meshLength;
+                this.addToScene();
             });
-            this.currentMesh = new ThreeJs.Mesh(this.currentTextGeometry, this.currentMaterial);
-            this.currentTextGeometry.computeBoundingBox();
-            this.meshLength = (this.currentTextGeometry.boundingBox as ThreeJs.Box3).max.x - (this.currentTextGeometry.boundingBox as ThreeJs.Box3).min.x;
-            let offset: number = getWinHeight() - (MaxRenderStrokes * RenderCharMaxHeight * 2.0);
-            this.currentMesh.position.set(0, (this.id * (RenderCharMaxHeight * 2.0)) + offset, 0);
-            this.currentMaterial.uniforms.meshLength.value = this.meshLength;
-            this.addToScene();
         });
     }
 
@@ -254,22 +256,15 @@ class StringConveyor {
         return Utils.getRandomNum(0, 2) == 0 ? '1' : '0';
     }
 
-    public getGenString(): string {
-        const genF: any = this.genString();
-        return genF();
-    }
-
-    private genString(): () => string {
-        let generatedString: string = "";
-        return (): string => {
-            let size: number = (getWinWidth()) / RenderCharMaxWidth;
-            while (true) {
-                generatedString += StringConveyor.generateRandomChar();
-                if (generatedString.length > (size * (0.8 + (5 - Utils.getRandomNum(0, 10)) * 0.01))) {
-                    break;
-                }
+    public async getGenString() {
+        return new Promise((resolve) => {
+            const generatedChars: string[] = [];
+            const size: number = getWinWidth() / RenderCharMaxWidth;
+            const maxLength: number = size * (0.6 + (10 - Utils.getRandomNum(0, 20)) * 0.01);
+            while (generatedChars.length <= maxLength) {
+              generatedChars.push(StringConveyor.generateRandomChar());
             }
-            return generatedString;
-        }
-    }
+            resolve(generatedChars.join(""));
+        });
+      }
 }

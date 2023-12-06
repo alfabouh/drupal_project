@@ -1,5 +1,4 @@
-  button {
-    margin-top: 14px;
+  .button-d {
     color: #FFF;
     font-family: Ubuntu;
     font-size: 12px;
@@ -8,8 +7,25 @@
     line-height: 10px; /* 83.333% */
     letter-spacing: 0.72px;
     text-transform: uppercase;
+    padding-bottom: 8px;
   }
 
+  .button-d2 {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 14px; /* 77.778% */
+  }
+
+  .menub {
+    background-image: url("/assets/img/arrow-lang.svg");
+    background-position: right center;
+    background-repeat: no-repeat;
+    padding-right: 20px;
+  }
+  
   button:hover .line-image {
     opacity: 1;
   }

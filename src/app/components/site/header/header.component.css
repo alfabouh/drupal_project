@@ -26,12 +26,13 @@
     width: 136.989px;
     height: 19.244px;
     flex-shrink: 0;
+    margin-right: 61px;
   }
 
   #number {
     margin-left: 214.45px;
     color: #FFF;
-    font-family: Montserrat;
+    font-family: "Montserrat";
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
@@ -41,11 +42,12 @@
   #lang{
     margin-left: 38px;
     color: #FFF;
-    font-family: Montserrat;
+    font-family: "Montserrat";
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
     line-height: 14px; /* 100% */
+    width: 132px;
   }
 
   #str {
@@ -83,7 +85,7 @@
 
   #page-title {
     color: var(--White, #FFF);
-    font-family: Montserrat;
+    font-family: "Montserrat";
     font-size: 52px;
     font-style: bold;
     font-weight: 700;
@@ -92,7 +94,7 @@
 
   #support-main-description {
     color: var(--White, #FFF);
-    font-family: Montserrat;
+    font-family: "Montserrat";
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
@@ -101,11 +103,22 @@
     opacity: 0.8;
   }
 
-  #block-main-wrapper{
+  #container button {
     margin-top: 50px;
     border-radius: 5px;
     border: 2px solid var(--icons-1, #F14D34);
     width: 220px;
     height: 60px;
     flex-shrink: 0;
+    background-color: transparent;
+    transition: background-color 0.5s ease;
+  }
+
+  #container button:hover {
+    background-color: #F14D34;
+  }
+
+  .lang_arrow {
+    position: absolute;
+    transform: translate(120px, 10px);
   }

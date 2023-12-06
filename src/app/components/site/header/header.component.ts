@@ -13,9 +13,19 @@ $(() => {
 })
 export class HeadButton {
     @Input() innerText: string = "";
+    @Input() textClass: string = "button-d mx-3";
+    @Input() isMenu: boolean = false;
     public svgWidth: number = 0;
 
     constructor(private elementRef: ElementRef) {
+    }
+
+    public getClassList(): string {
+        let textClass: string = this.textClass;
+        if (this.isMenu) {
+            textClass += " menub";
+        }
+        return textClass;
     }
 
     public onMouseOver(): void {
