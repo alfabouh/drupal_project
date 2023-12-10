@@ -1,0 +1,54 @@
+#sblock {
+    width: 292px;
+    height: 292px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: var(--White, #FFF);
+    box-shadow: 0px 28px 42px rgba(0, 0, 0, 0.1);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    padding-left: 26px;
+    padding-top: 27px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+#titletext {
+    color: var(--main-black, #050C33);
+
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 232px;
+    margin-bottom: 12px;
+}
+
+#innertext {
+    width: 233px;
+    color: var(--main-black, #050C33);
+
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    opacity: 0.7;
+}
+
+img {
+    flex-shrink: 0;
+}
+
+#idtext {
+    color: var(--main-black, #050C33);
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    opacity: 0.5;
+    width: 232px;
+    margin-bottom: 20px;
+}

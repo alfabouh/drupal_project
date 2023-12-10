@@ -17,7 +17,7 @@ let MaxRenderStrokes: number = 0;
 let maxRenders = 128;
 let strMesh: StringRenderMesh[] = new Array<StringRenderMesh>(maxRenders);
 let WIDTH_PRC: number = 1.0;
-let HEIGHT_PRC: number = 0.86;
+let HEIGHT_PRC: number = 1.0;
 let clock: ThreeJs.Clock = new ThreeJs.Clock;
 
 $(() => {
@@ -43,11 +43,11 @@ $(() => {
 });
 
 function getWinWidth(): number {
-    return window.innerWidth * WIDTH_PRC;
+    return $("#block1").width() as number;
 }
 
 function getWinHeight(): number {
-    return window.innerHeight * HEIGHT_PRC;
+    return $("#block1").height() as number;
 }
 
 async function calcFontBounds() {

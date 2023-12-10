@@ -1,0 +1,33 @@
+#block2 {
+  position: relative;
+  margin-top: 50px;
+}
+
+#main_title {
+  color: var(--main-black, #050C33);
+  font-family: Montserrat;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  width: 580px;
+  margin-bottom: 63px;
+}
+
+#main_desc {
+  color: var(--main-black, #050C33);
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  width: 493px;
+  line-height: 22px;
+  opacity: 0.7;
+  margin-top: 18px;
+}
+
+.desc-block {
+  width: 182px;
+  height: 194px;
+  flex-shrink: 0;
+}
