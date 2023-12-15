@@ -11,6 +11,7 @@ $(() => {
     styleUrls: ['./imgs/cases-im-small.component.css' ]
 })
 export class CasesImgSmallComponent {
+    @Input() link: string = "/";
     @Input() ImgLink: string = "";
     @Input() title: string = "";
     @Input() date: string = "";
@@ -26,6 +27,7 @@ export class CasesImgSmallComponent {
     styleUrls: ['./imgs/cases-im-medium.component.css' ]
 })
 export class CasesImgMediumComponent {
+    @Input() link: string = "/";
     @Input() ImgLink: string = "";
     @Input() title: string = "";
     @Input() date: string = "";
@@ -40,6 +42,7 @@ export class CasesImgMediumComponent {
     styleUrls: ['./imgs/cases-im-large.component.css' ]
 })
 export class CasesImgLargeComponent {
+    @Input() link: string = "/";
     @Input() ImgLink: string = "";
     @Input() title: string = "";
 
