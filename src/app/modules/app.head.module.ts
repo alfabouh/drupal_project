@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { AppComponent } from "../components/main/main.component";
 import { HeaderComponent, HeadButton, DrupalDescription } from "../components/site/header/header.component";
 import { FormsModule } from "@angular/forms";
 
@@ -10,7 +9,6 @@ import { FormsModule } from "@angular/forms";
         FormsModule
     ],
     declarations: [
-        AppComponent,
         HeaderComponent,
         HeadButton,
         DrupalDescription
@@ -18,4 +16,5 @@ import { FormsModule } from "@angular/forms";
     providers: []
 })
 export class HeadModule {
+    title = "drupal project";
 }

@@ -1,0 +1,25 @@
+#block-11 {
+    margin-bottom: 160px;
+}
+
+#inner {
+    width: 70%;
+}
+
+#title {
+    color: var(--main-black, #050C33);
+    text-align: center;
+
+    /* titles/h2 */
+    font-family: Montserrat;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 60px;
+}
+
+#firstQBlock {
+    border: 3px solid var(--main-black, #f04325);
+    margin-bottom: 20px;
+}

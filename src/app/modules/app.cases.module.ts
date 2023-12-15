@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
 import { FormsModule } from "@angular/forms";
-import { CasesComponent } from "../components/site/cases/cases.component";
+import { CasesComponent, CasesImgLargeComponent, CasesImgMediumComponent, CasesImgSmallComponent } from "../components/site/cases/cases.component";
 
 @NgModule({
     imports: [
@@ -10,7 +10,10 @@ import { CasesComponent } from "../components/site/cases/cases.component";
         FormsModule
     ],
     declarations: [
-        CasesComponent
+        CasesComponent,
+        CasesImgSmallComponent,
+        CasesImgMediumComponent,
+        CasesImgLargeComponent
     ],
     providers: []
 })

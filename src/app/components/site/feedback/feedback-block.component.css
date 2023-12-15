@@ -1,0 +1,27 @@
+#inner-block {
+    width: 420px;
+    margin-left: 128px;
+}
+
+#title {
+    color: var(--main-black, #050C33);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+    margin-bottom: 28px;
+}
+
+#desc {
+    height: 46px;
+    flex-shrink: 0;
+    color: var(--main-black, #050C33);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    opacity: 0.5;
+}

@@ -14,21 +14,19 @@
 }
 
 #titletext {
+    width: 232px;
     color: var(--main-black, #050C33);
-
     font-family: Montserrat;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    width: 232px;
     margin-bottom: 12px;
 }
 
 #innertext {
     width: 233px;
     color: var(--main-black, #050C33);
-
     font-family: Montserrat;
     font-size: 16px;
     font-style: normal;

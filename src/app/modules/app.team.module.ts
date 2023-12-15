@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
 import { FormsModule } from "@angular/forms";
-import { TeamComponent } from "../components/site/team/team.component";
+import { TeamComponent, TeamImageComponent } from "../components/site/team/team.component";
 
 @NgModule({
     imports: [
@@ -10,7 +10,8 @@ import { TeamComponent } from "../components/site/team/team.component";
         FormsModule
     ],
     declarations: [
-        TeamComponent
+        TeamComponent,
+        TeamImageComponent
     ],
     providers: []
 })

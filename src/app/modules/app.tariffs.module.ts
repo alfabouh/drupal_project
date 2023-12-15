@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
 import { FormsModule } from "@angular/forms";
-import { TariffsComponent } from "../components/site/tariffs/tariffs.component";
+import { TariffBlock, TariffsComponent } from "../components/site/tariffs/tariffs.component";
 
 @NgModule({
     imports: [
@@ -10,7 +10,8 @@ import { TariffsComponent } from "../components/site/tariffs/tariffs.component";
         FormsModule
     ],
     declarations: [
-        TariffsComponent
+        TariffsComponent,
+        TariffBlock
     ],
     providers: []
 })

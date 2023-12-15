@@ -2,6 +2,7 @@
     position: relative;
     overflow: hidden;
     height: 650px;
+    margin-bottom: 50px;
   }
 
   #content {
@@ -15,27 +16,6 @@
     height: 19.244px;
     flex-shrink: 0;
     margin-right: 61px;
-  }
-
-  #number {
-    margin-left: 214.45px;
-    color: #FFF;
-    font-family: "Montserrat";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 14px; 
-  }
-
-  #lang{
-    margin-left: 38px;
-    color: #FFF;
-    font-family: "Montserrat";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 14px; /* 100% */
-    width: 132px;
   }
 
   #str {
@@ -84,9 +64,4 @@
 
   #container button:hover {
     background-color: #F14D34;
-  }
-
-  .lang_arrow {
-    position: absolute;
-    transform: translate(120px, 10px);
   }

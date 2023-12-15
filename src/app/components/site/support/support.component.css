@@ -1,6 +1,12 @@
 #block3 {
-    margin-top: 110px;
     z-index: 1;
+    margin-bottom: 390px;
+}
+
+#blocks {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 #title {
