@@ -1,0 +1,9 @@
+<div class="fixed z-[5] py-[5px]" id="block">
+    <ng-container *ngFor="let item of menuSection; let i = index">
+        <a [href]="sectionLink[i]">
+            <div class="z-[10] section p-[10px]"> 
+                {{ item }} 
+            </div> 
+        </a>
+    </ng-container>
+</div>

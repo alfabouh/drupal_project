@@ -26,6 +26,7 @@ export const fTextShader = `
         float factor = appearFactor / 2.25;
         final = (uv.x > factor && uv.x < appearFactor) ? vec4(mix(col1, col2, interpolateUV(uv, factor)), 1.) : final;
         final = vec4(mix(vec3(0.), vec3(final.xyz), interpolateUV(uv, fadeFactor)), 1);
+
         gl_FragColor = final;
     }
 `;

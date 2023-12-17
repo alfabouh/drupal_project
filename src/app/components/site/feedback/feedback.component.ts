@@ -28,6 +28,7 @@ export class FeedbackBlockComponent {
 export class FeedbackComponent {
     @ViewChild('slickModal') slickModal: SlickCarouselComponent;
     public currentSlide: number = 0;
+    public totalSlides: number = 0;
 
     public carouselConfig: any = {
         slidesToShow: 1,
@@ -54,12 +55,17 @@ export class FeedbackComponent {
         this.slickModal = new SlickCarouselComponent();
     }
 
+    ngAfterViewInit(): void {
+        setTimeout(() => {
+            this.totalSlides = this.slickModal.slides.length;
+        });
+    }
+
     public getAllSlides(): string {
-        let curr: number = this.slickModal.slides.length;
-        if (curr <= 9) {
-            return "0" + (curr);
+        if (this.totalSlides <= 9) {
+            return "0" + (this.totalSlides);
         }
-        return "" + curr;
+        return "" + this.totalSlides;
     }
 
     public onChange(event: any) {

@@ -9,7 +9,7 @@ export const vGaussShader = `
 export const fGaussShader = `
     in vec2 verUv;
     uniform sampler2D texture1;
-     
+
     void main() {
         vec4 color = vec4(0.0);
         float blurSize = 0.005;
@@ -24,8 +24,8 @@ export const fGaussShader = `
                 color += txt * br;
             }
         }
-    
+        
         color /= pow((size * blurSize + 1.0), 2.);
-        gl_FragColor = ((color.r + color.g + color.b) != 0. && color.a > 0.25) ? color * bias : color;
+        gl_FragColor = (((color.r + color.g + color.b) != 0. && color.a > 0.25) ? color * bias : color);
     }
 `;

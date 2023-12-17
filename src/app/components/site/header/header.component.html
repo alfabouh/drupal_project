@@ -5,16 +5,20 @@
       <div id="content">
         <img src="/assets/img/drupal-coder.svg" alt="Логотип" id="logo">
         <head-button innerText="ПОДДЕРЖКА DRUPAL"></head-button>
-        <head-button innerText="АДМИНИСТРИРОВАНИЕ" [isMenu]=true></head-button>
+        <head-button innerText="АДМИНИСТРИРОВАНИЕ" menuId="#menu1"></head-button>
         <head-button innerText="ПРОДВИЖЕНИЕ"></head-button>
         <head-button innerText="РЕКЛАМА"></head-button>
-        <head-button innerText="О НАС" [isMenu]=true></head-button>
+        <head-button innerText="О НАС" menuId="#menu2"></head-button>
         <head-button innerText="ПРОЕКТЫ"></head-button>
         <head-button innerText="КОНТАКТЫ"></head-button>
+
+        <button-menu id="menu1" [menuSection]="['МИГРАЦИЯ', 'БЭКАПЫ', 'АУДИТ БЕЗОПАСНОСТИ', 'ОПТИМИЗАЦИЯ СКОРОСТИ', 'ПЕРЕЕЗД НА HTTPS']" [sectionLink]="['/', '/', '/', '/', '/']" #buttonMenu></button-menu>
+        <button-menu id="menu2" [menuSection]="['КОМАНДА', 'DRUPALGIVE', 'КУРСЫ DRUPAL', 'ВАКАНСИИ']" [sectionLink]="['/', '/', '/', '/']" #buttonMenu></button-menu>
+
       </div>
     </div>
     
-    <div id="container" class="flex">
+    <div id="container" class=" z-[1] flex">
       <div class="w-1/3">
         <h1 id="page-title">Поддержка <br> сайтов на Drupal</h1>
         <div id="support-main-description">

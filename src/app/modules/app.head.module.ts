@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { HeaderComponent, HeadButton, DrupalDescription } from "../components/site/header/header.component";
+import { HeaderComponent, HeadButton, DrupalDescription, MenuButton } from "../components/site/header/header.component";
 import { FormsModule } from "@angular/forms";
 
 @NgModule({
@@ -11,7 +11,8 @@ import { FormsModule } from "@angular/forms";
     declarations: [
         HeaderComponent,
         HeadButton,
-        DrupalDescription
+        DrupalDescription,
+        MenuButton
     ],
     providers: []
 })
