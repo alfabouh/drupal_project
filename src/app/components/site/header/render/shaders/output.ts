@@ -23,8 +23,8 @@ export const fOutputShader = `
 
         float fromMouseDistance = distance(verUv, mouse);
         float fct = smoothstep(0., .2, fromMouseDistance);
-        outColor = vec4(vec3(outColor.r, outColor.g, outColor.b) * vec3(fct, 3.0, fct), 1.);
+        outColor = vec4(vec3(outColor.r, outColor.g, outColor.b) * vec3(1.0, fct, 1.0), 1.);
 
-        gl_FragColor = outColor;
+        gl_FragColor = outColor * vec4(1., 3., 1., 1.);
     }
 `;
