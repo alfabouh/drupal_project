@@ -19,6 +19,7 @@ let strMesh: StringRenderMesh[] = new Array<StringRenderMesh>(maxRenders);
 let WIDTH_PRC: number = 1.0;
 let HEIGHT_PRC: number = 1.0;
 let clock: ThreeJs.Clock = new ThreeJs.Clock;
+let mouseVector: ThreeJs.Vector2 = new ThreeJs.Vector2();
 
 $(() => {
     renderer = new ThreeJs.WebGLRenderer();
@@ -59,7 +60,7 @@ async function calcFontBounds() {
             let e: number[] = new Array<number>(2);
             e[0] = (newtextGeometry.boundingBox as ThreeJs.Box3).max.x - (newtextGeometry.boundingBox as ThreeJs.Box3).min.x;
             e[1] = (newtextGeometry.boundingBox as ThreeJs.Box3).max.y - (newtextGeometry.boundingBox as ThreeJs.Box3).min.y;
-            MaxRenderStrokes = (getWinHeight() / e[1] - 1) * 0.5;
+            MaxRenderStrokes = (getWinHeight() / e[1] - 1) * 0.5 - 1;
             resolve(e);
         });
     });
@@ -78,6 +79,9 @@ function initShapes(): void {
     for (let i: number = 0; i < strMesh.length; i++) {
         strMesh[i] = new StringRenderMesh(i, scene, new StringConveyor());
     }
+    $("body").on("mousemove", (e) => {
+        mouseVector.set(e.pageX, e.pageY);
+    });
     $("#render_head").append(renderer.domElement);
 }
 
@@ -111,7 +115,8 @@ export function onrender(): void {
         const outShaderGauss: ThreeJs.ShaderMaterial = new ThreeJs.ShaderMaterial({
             uniforms: {
                 texture1: { value: renderTarget.texture },
-                texture2: { value: renderTarget2.texture }
+                texture2: { value: renderTarget2.texture },
+                mouse: { value: new ThreeJs.Vector2(mouseVector.x / getWinWidth(), 1.0 - mouseVector.y / getWinHeight()) }
             },
             vertexShader: vOutputShader,
             fragmentShader: fOutputShader
@@ -133,6 +138,7 @@ export function onrender(): void {
         if (e !== undefined) {
             e.tick(delta);
             if (e.shouldRedraw()) {
+                e.allow = true;
                 e.redraw();
             }
         }
@@ -150,13 +156,15 @@ class StringRenderMesh {
     private meshLength = 0;
     private id: number;
     private appendSpeed: number;
-
+    public allow: boolean = false;
+    
     constructor(id: number, scene: ThreeJs.Object3D, strCon: StringConveyor) {
         this.conveyor = strCon;
         this.scene = scene;
         this.constructGeometries();
         this.id = id;
         this.appendSpeed = Utils.getRandomNum(12, 18);
+        this.allow = true;
     }
 
     public get getAppendSpeed(): number {
@@ -205,7 +213,7 @@ class StringRenderMesh {
     }
 
     public addToScene(): void {
-        if (this.currentMesh !== null) {
+        if (this.allow && this.currentMesh !== null) {
             this.scene.add(this.currentMesh as ThreeJs.Mesh);
         }
     }
@@ -235,7 +243,7 @@ class StringRenderMesh {
                 this.currentMesh = new ThreeJs.Mesh(this.currentTextGeometry, this.currentMaterial);
                 this.currentTextGeometry.computeBoundingBox();
                 this.meshLength = (this.currentTextGeometry.boundingBox as ThreeJs.Box3).max.x - (this.currentTextGeometry.boundingBox as ThreeJs.Box3).min.x;
-                let offset: number = getWinHeight() - (MaxRenderStrokes * RenderCharMaxHeight * 2.0);
+                let offset: number = getWinHeight() - (MaxRenderStrokes * RenderCharMaxHeight * 2.0) - RenderCharMaxHeight * 2.0;
                 this.currentMesh.position.set(0, (this.id * (RenderCharMaxHeight * 2.0)) + offset, 0);
                 this.currentMaterial.uniforms.meshLength.value = this.meshLength;
                 this.addToScene();
