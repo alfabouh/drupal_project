@@ -1,0 +1,8 @@
+<button (click)="scrollTo()" (mouseenter)="onMouseOver()" [class]="getClassList()">
+  {{ innerText }}
+  <ng-container *ngIf="!isMenu()">
+    <svg class='line-image' preserveAspectRatio='none' [ngStyle]="{ 'width.px': svgWidth }" height="3" viewBox="0 0 140 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line y1="1.5" x2="140" y2="1.5" stroke="#F14D34" stroke-width="3"/>
+    </svg>
+  </ng-container>
+</button>

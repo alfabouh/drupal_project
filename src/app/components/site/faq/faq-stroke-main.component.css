@@ -1,0 +1,35 @@
+#desc {
+    color: var(--main-black, #6e6e6e);
+
+    /* titles/h2 */
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+}
+
+#title {
+    color: var(--main-black, #f04325);
+
+    /* titles/h2 */
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 20px;
+}
+
+#number {
+    color: var(--main-black, #6e6e6e);
+
+    margin-right: 5px;
+    transform: translateY(5px);
+    /* titles/h2 */
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+}

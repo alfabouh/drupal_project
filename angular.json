@@ -21,13 +21,18 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
+              "src/x-icon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/slick-carousel/slick/slick.css",
+              "node_modules/slick-carousel/slick/slick-theme.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/slick-carousel/slick/slick.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -83,13 +88,18 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
-              "src/favicon.ico",
+              "src/x-icon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/slick-carousel/slick/slick.css",
+              "node_modules/slick-carousel/slick/slick-theme.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/slick-carousel/slick/slick.min.js"
+            ]
           }
         }
       }

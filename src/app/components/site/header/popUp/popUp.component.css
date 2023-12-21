@@ -1,0 +1,30 @@
+#backgroundBlock {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.5;
+    z-index: 100;
+}
+
+#ghost-block {
+    width: 100%;
+    height: 100%;
+    background-image: url("/assets/img/D-flying.svg");
+    background-position: right top;
+    background-repeat: no-repeat;
+}
+
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    flex-shrink: 0;
+    background: linear-gradient(261deg, rgba(75, 75, 105, 0.55) -114.85%, rgba(5, 5, 20, 1) 69.04%), #394047;
+    border-radius: 5px;
+    border: 2px solid var(--icons-1, #5d3494);
+    z-index: 100;
+}

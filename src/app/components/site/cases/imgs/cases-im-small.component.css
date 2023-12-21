@@ -1,0 +1,50 @@
+#imblock {
+    width: 380px;
+    height: 475px;
+    flex-shrink: 0;
+}
+
+#inner-img {
+    width: 380px;
+    height: 215px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 40px;
+}
+
+#title {
+    width: 320px;
+    color: var(--main-black, #050C33);
+
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#desc {
+    margin-top: 20px;
+    width: 313px;
+    color: var(--main-black, #050C33);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px; /* 157.143% */
+    opacity: 0.7;
+}
+
+#date {
+    width: 320px;
+    opacity: 0.5;
+    color: var(--main-black, #050C33);
+
+/* labels/12-bold */
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}

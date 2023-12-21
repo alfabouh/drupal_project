@@ -1,0 +1,64 @@
+#block5 {
+    background-image: url("/assets/img/D.svg");
+    background-repeat: no-repeat;
+    background-position: top right;
+    margin-bottom: 160px;
+}
+
+#title {
+    display: flex;
+    margin-bottom: 86px;
+    width: 580px;
+    height: 30px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#blocks {
+    margin-bottom: 72px;
+}
+
+button span {
+    color: var(--main-black, #050C33);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 12px; /* 100% */
+    letter-spacing: 0.72px;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+}
+
+button {
+    display: flex;
+    width: 290px;
+    height: 60px;
+    padding: 0px 5px 0px 6px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+#lower-info {
+    width: 468px;
+    color: var(--main-black, #050C33);
+    text-align: center;
+
+    /* text/16px */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px; /* 137.5% */
+    opacity: 0.5;
+}

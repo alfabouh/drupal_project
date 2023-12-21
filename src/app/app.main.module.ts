@@ -1,14 +1,13 @@
 import { NgModule } from "@angular/core";
-import { HeadModule } from "./modules/app.head.module";
-import { AppComponent } from "./components/main/main.component";
+import { MainModule } from "./components/site/application/main.module";
+import { MainComponent } from "./components/site/application/main.component";
+
 
 @NgModule({
     imports: [
-        HeadModule
+        MainModule
     ],
-    bootstrap: [AppComponent],
-    declarations: [
-    ]
+    bootstrap: [MainComponent]
 })
 export class AppModule {
 }

@@ -1,0 +1,124 @@
+.tariff-block-main {
+    width: 420px;
+    height: 665px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    background: #FFF;
+    box-shadow: 0px 4px 60px 0px rgba(161, 161, 161, 0.25);
+    transform: translateY(-23px);
+}
+
+.tariff-block {
+    width: 390px;
+    height: 619px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    background: #FFF;
+}
+
+#upper {
+    color: var(--icons-1, #F14D34);
+    font-family: Montserrat;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 230.855px;
+}
+
+#cost {
+    width: 197.428px;
+    color: var(--main-black, #050C33);
+    font-family: Montserrat;
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 72px;
+    text-transform: uppercase;
+}
+
+#cost-hour {
+    display: flex;
+    width: 125.351px;
+    height: 18px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--main-black, #050C33);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 20px;
+}
+
+#positions {
+    margin-top: 40px;
+    margin-bottom: 43px;
+}
+
+.position {
+    color: var(--main-black, #050C33);
+    width: 239px;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    opacity: 0.7;
+    margin-bottom: 19px;
+    margin-left: 18px;
+}
+
+.tariff-block-main button span {
+    color: var(--White, #FFF);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 12px; /* 100% */
+    letter-spacing: 0.72px;
+    text-transform: uppercase;
+}
+
+.tariff-block-main button {
+    width: 300px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: var(--icons-1, #F14D34);
+}
+
+.tariff-block button span {
+    color: #F14D34;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 12px; /* 100% */
+    letter-spacing: 0.72px;
+    text-transform: uppercase;
+}
+
+.tariff-block button {
+    width: 260px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border: 1px solid rgba(241, 77, 52, 0.4);
+}
+
+#rubble {
+    transform: translateY(8px) translateX(6px);
+    width: 21.936px;
+    color: var(--main-black, #050C33);
+    font-family: Montserrat;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+}

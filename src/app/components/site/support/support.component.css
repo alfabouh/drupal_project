@@ -1,0 +1,22 @@
+#block3 {
+    z-index: 1;
+    margin-bottom: 390px;
+}
+
+#blocks {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+#title {
+    width: 406px;
+    color: var(--main-black, #050C33);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 56px;
+}

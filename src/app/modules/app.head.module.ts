@@ -1,19 +1,25 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { AppComponent } from "../components/main/main.component";
-import { HeaderComponent } from "../components/site/header/header.component";
+import { HeaderComponent, HeadButton, DrupalDescription, MenuButton, PopUp } from "../components/site/header/header.component";
 import { FormsModule } from "@angular/forms";
+import { FooterModule } from "./app.footer.module";
+import { PopupState } from "../components/site/service/popup";
 
 @NgModule({
     imports: [
         BrowserModule,
-        FormsModule
+        FormsModule,
+        FooterModule
     ],
     declarations: [
-        AppComponent,
-        HeaderComponent
+        HeaderComponent,
+        HeadButton,
+        DrupalDescription,
+        MenuButton,
+        PopUp
     ],
-    providers: []
+    providers: [PopupState],
+    exports: [HeaderComponent]
 })
 export class HeadModule {
 }

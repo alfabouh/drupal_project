@@ -1,0 +1,36 @@
+
+.icon-b {
+    position: absolute;
+    transform: translateY(17px) translateX(-55px);
+    width: 114px;
+    height: 71px;
+    flex-shrink: 0;
+  }
+  
+.icon-m {
+  width: 81px;
+  height: 81px;
+  flex-shrink: 0;
+  margin-bottom: 10px;
+}
+
+#title {
+    color: var(--main-black, #050C33);
+    font-family: Montserrat;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+
+#description {
+    color: var(--main-black, #050C33);
+    width: 202px;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    opacity: 0.7;
+}

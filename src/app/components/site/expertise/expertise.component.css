@@ -1,0 +1,34 @@
+#block4 {
+    width: 100%;
+    height: 939px;
+    flex-shrink: 0;
+    background: linear-gradient(261deg, rgba(75, 75, 105, 0.55) -114.85%, rgba(5, 5, 20, 1) 69.04%), #394047;
+    z-index: -1;
+    margin-bottom: 160px;
+}
+
+#title {
+    width: 480px;
+    color: var(--White, #FFF);
+    font-family: Montserrat;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 59px;
+}
+
+#inner-block {
+    padding-left: 730px;
+    padding-top: 405px;
+}
+
+#background-img {
+    position: absolute;
+    transform: translateY(412px);
+}
+
+#background-img-shadow {
+    position: absolute;
+    transform: translateY(975px);
+}

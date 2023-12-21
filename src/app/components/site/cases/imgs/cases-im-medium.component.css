@@ -1,0 +1,38 @@
+#imblock {
+    width: 380px;
+    height: 475px;
+    flex-shrink: 0;
+}
+
+#inner-img {
+    position: absolute;
+    width: 380px;
+    height: 475px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 5px;
+}
+
+#title {
+    width: 300px;
+    color: #FFF;
+    margin-top: 361px;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#date {
+    width: 300px;
+    color: #FFF;
+
+/* labels/12-bold */
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    opacity: 0.5;
+}

@@ -1,0 +1,19 @@
+<div id="contact">
+    <input id="name" type="text" class="field" placeholder="Ваше имя">
+    <input id="phone" type="text" class="field" placeholder="Телефон">
+    <input id="mail" type="email" class="field" placeholder="E-mail">
+    <textarea class="field2" placeholder="Ваш комментарий"></textarea>
+    <label class="flex custom-checkbox">
+      <input class="hidden-checkbox" type="checkbox">
+      <span class="checkmark"></span>
+      <div id="checkText">Отправляя заявку, я даю согласие на <a href="/" style="color: #f14d34;">обработку своих персональных данных.</a> <a style="font-size: 20px; color: red;">*</a></div>
+    </label>
+    <button (click)="send()"><span>СВЯЖИТЕСЬ С НАМИ</span></button>
+    <div id="stat" #status></div>
+    
+    <div class="hidden" #loading>
+      <div class="loading flex justify-center mt-[5px]">
+        <img src="/assets/img/loading.png" alt="Loading">
+      </div>
+    </div>
+</div>
