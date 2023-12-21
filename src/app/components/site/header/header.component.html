@@ -1,10 +1,9 @@
 <div id="render_head" class="absolute top-0"></div>
 <div id="block1">
-  <div class="mx-24 my-8">
-    
-    <div class="h-32">
-      <div id="content">
-        <img src="/assets/img/drupal-coder.svg" alt="Логотип" id="logo">
+  <div class="2xl:mx-24 2xl:my-8">
+    <div class="2xl:h-32">
+      <div id="content" class="flex items-center">
+        <img src="/assets/img/drupal-coder.svg" alt="Логотип" id="logo" class="w-auto h-8 mr-4">
         <head-button innerText="ПОДДЕРЖКА DRUPAL"></head-button>
         <head-button innerText="АДМИНИСТРИРОВАНИЕ" menuId="#menu1"></head-button>
         <head-button innerText="ПРОДВИЖЕНИЕ"></head-button>
@@ -17,38 +16,34 @@
         <button-menu id="menu2" [menuSection]="['КОМАНДА', 'DRUPALGIVE', 'КУРСЫ DRUPAL', 'ВАКАНСИИ']" [sectionLink]="['/', '/', '/', '/']" #buttonMenu></button-menu>
       </div>
     </div>
-    
-    <div id="container" class=" z-[1] flex">
-      <div class="w-1/3">
-        <h1 id="page-title">Поддержка <br> сайтов на Drupal</h1>
-        <div id="support-main-description">
+
+    <div id="container" class="z-1 flex flex-wrap items-center justify-center md:justify-start">
+      <div id="info" class="w-full text-center mb-8 md:w-1/3">
+        <h1 id="page-title" class="text-white font-bold text-4xl md:text-6xl">Поддержка <br> сайтов на Drupal</h1>
+        <div id="support-main-description" class="text-white font-medium text-lg mt-4">
           Сопровождение и поддержка сайтов <br> на CMS Drupal любых версий и запущенности
         </div>
-        <button>ТАРИФЫ</button>
+        <button class="mt-8 px-4 py-2 border-2 border-icons-1 rounded">ТАРИФЫ</button>
       </div>
-      <div class="w-1/2">
-        <div class="flex">
-          <div class="w-1/4">
-            <drupal-desc titleClass="one-place" titleText="#1" titleImgLink="/assets/img/cup.png" innerText="Drupal-разработчик <br> в России по версии <br> Рейтинга Рунета"></drupal-desc>
-          </div>
-          <div class="w-1/4">
-            <drupal-desc titleClass="common" titleText="3+" innerText="средний опыт <br> специалистов более <br> 3 лет"></drupal-desc>
-          </div>
-          <div class="w-1/4">
-            <drupal-desc titleClass="common" titleText="14" innerText="лет опыта в сфере <br> Drupal"></drupal-desc>
-          </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 2xl:gap-8 gap-x-[25%]">
+        <div class="h-32 mb-2">
+          <drupal-desc titleClass="one-place" titleText="#1" titleImgLink="/assets/img/cup.png" innerText="Drupal-разработчик <br> в России по версии <br> Рейтинга Рунета"></drupal-desc>
         </div>
-      
-        <div class="flex">
-          <div class="w-1/4">
-            <drupal-desc titleClass="common" titleText="200+" innerText="модулей и тем <br> в формате DrupalGive"></drupal-desc>
-          </div>
-          <div class="w-1/4">
-            <drupal-desc titleClass="common" titleText="35 000" innerText="часов поддержки <br> сайтов на Drupal"></drupal-desc>
-          </div>
-          <div class="w-1/4">
-            <drupal-desc titleClass="common" titleText="200+" innerText="Проектов <br> на поддержке"></drupal-desc>
-          </div>
+        <div class="h-32 mb-2">
+          <drupal-desc titleClass="common" titleText="3+" innerText="средний опыт <br> специалистов более <br> 3 лет"></drupal-desc>
+        </div>
+        <div class="h-32 mb-2">
+          <drupal-desc titleClass="common" titleText="14" innerText="лет опыта в сфере <br> Drupal"></drupal-desc>
+        </div>
+        <div class="h-32 mb-2">
+          <drupal-desc titleClass="common" titleText="200+" innerText="модулей и тем <br> в формате DrupalGive"></drupal-desc>
+        </div>
+        <div class="h-32 mb-16">
+          <drupal-desc titleClass="common" titleText="35 000" innerText="часов поддержки <br> сайтов на Drupal"></drupal-desc>
+        </div>
+        <div class="h-32 mb-16">
+          <drupal-desc titleClass="common" titleText="200+" innerText="Проектов <br> на поддержке"></drupal-desc>
         </div>
       </div>
     </div>

@@ -1,67 +1,104 @@
+#block1 {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  margin-bottom: 50px;
+}
+
+#content {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000000;
+  box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+#logo {
+  width: 136.989px;
+  height: 19.244px;
+  flex-shrink: 0;
+  margin-right: 61px;
+}
+
+#container {
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#info {
+  text-align: center;
+}
+
+#page-title {
+  color: var(--White, #FFF);
+  font-family: "Montserrat";
+  font-size: 24px;
+  font-style: bold;
+  font-weight: 700;
+  line-height: 60px;
+  white-space: nowrap;
+  line-height: 1.2;
+  margin-top:45px;
+}
+
+#support-main-description {
+  color: var(--White, #FFF);
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  margin-top: 15px;
+  opacity: 0.8;
+}
+
+#container button {
+  margin-top: 50px;
+  border-radius: 5px;
+  border: 2px solid var(--icons-1, #F14D34);
+  width: 220px;
+  height: 60px;
+  flex-shrink: 0;
+  background-color: transparent;
+  transition: background-color 0.5s ease;
+}
+
+#container button:hover {
+  background-color: #F14D34;
+}
+
+@media only screen and (min-width: 600px) {
   #block1 {
-    position: relative;
-    overflow: hidden;
     height: 650px;
-    margin-bottom: 50px;
-  }
-
-  #content {
-    display: flex;
-    align-items: center;
-    z-index: 1;
-  }
-
-  #logo {
-    width: 136.989px;
-    height: 19.244px;
-    flex-shrink: 0;
-    margin-right: 61px;
-  }
-
-  #str {
-    stroke-width: 2px;
-    stroke: var(--White, #FFF);
-    opacity: 0.24;
-    width: 14px;
-    height: 7px;
-    flex-shrink: 0;
   }
 
   #container {
-    color: #fff;
+    text-align: initial;
   }
 
   #page-title {
-    color: var(--White, #FFF);
-    font-family: "Montserrat";
     font-size: 52px;
-    font-style: bold;
-    font-weight: 700;
-    line-height: 60px; /* 115.385% */
   }
 
   #support-main-description {
-    color: var(--White, #FFF);
-    font-family: "Montserrat";
     font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 28px; /* 155.556% */
-    margin-top: 15px;
-    opacity: 0.8;
   }
 
-  #container button {
-    margin-top: 50px;
-    border-radius: 5px;
-    border: 2px solid var(--icons-1, #F14D34);
-    width: 220px;
-    height: 60px;
-    flex-shrink: 0;
+  #info {
+    white-space: nowrap;
+    text-align: initial;
+  }
+
+  #content {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    width: auto;
     background-color: transparent;
-    transition: background-color 0.5s ease;
+    box-shadow: none;
+    z-index: 1;
   }
-
-  #container button:hover {
-    background-color: #F14D34;
-  }
+}
