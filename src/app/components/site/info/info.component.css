@@ -1,17 +1,18 @@
 #block2 {
   position: relative;
   margin-bottom: 110px;
+  margin-left:25px;
 }
 
 #main_title {
   color: var(--main-black, #050C33);
   font-family: Montserrat;
-  font-size: 42px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  width: 580px;
-  margin-bottom: 63px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 #main_desc {
@@ -20,7 +21,7 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  width: 493px;
+  width: 100%;
   line-height: 22px;
   opacity: 0.7;
   margin-top: 18px;
@@ -33,6 +34,13 @@
 }
 
 @media only screen and (min-width: 600px) {
+  #main_title {
+    font-size: 42px;
+    width: 580px;
+    margin-bottom: 63px;
+  }
+  #main_desc {
+    width: 493px;
+  }
 
-  
 }
