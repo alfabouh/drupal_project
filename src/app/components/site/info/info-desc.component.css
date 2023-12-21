@@ -6,6 +6,10 @@
     flex-shrink: 0;
   }
   
+  #pics{
+    margin-left:55px;
+  }
+  
   .icon-m {
     width: 81px;
     height: 81px;
@@ -25,6 +29,14 @@
   }
 
   .desc-block {
-    margin-right: 117px;
     margin-bottom: 50px;
+  }
+
+  @media only screen and (min-width: 600px) {
+    .desc-block {
+      margin-right: 117px;
+    }
+    #pics{
+      margin-left:0px;
+    }
   }
