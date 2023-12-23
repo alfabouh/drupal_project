@@ -2,10 +2,12 @@
     <div class="flex justify-center">
         <div id="title">Тарифы</div>
     </div>
-    <div id="blocks" class="lg:flex justify-center">
-        <tariff-block class="transform translate-x-[22px] relative z-0" upperDesc="Стартовый" [cost]=2000 [points]="['Предоплата от 2 часов', 'Консультации и работы по SEO', 'Услуги дизайнера', 'Стандартное время реакции', 'Неиспользованные оплаченные часы переносятся на следующий месяц']"></tariff-block>
-        <tariff-block class="relative z-10" [isMain]=true upperDesc="Бизнес" [cost]=2200 [points]="['Предоплата от 10 часов', 'Консультации и работы по SEO', 'Услуги дизайнера', 'Высокое время реакции – до 2 рабочих дней', 'Неиспользованные часы не переносятся']"></tariff-block>
-        <tariff-block class="transform translate-x-[-22px] relative z-0" upperDesc="VIP" [cost]=1800 [points]="['Предоплата от 100 часов', 'Консультации и работы по SEO', 'Услуги дизайнера', 'Максимальное время реакции – в день обращения', 'Неиспользованные часы не переносятся']"></tariff-block>
+    <div class="flex justify-center">
+        <div id="blocks" class="lg:flex">
+            <tariff-block class="transform translate-x-[22px] relative z-0" upperDesc="Стартовый" [cost]=2000 [points]="['Предоплата от 2 часов', 'Консультации и работы по SEO', 'Услуги дизайнера', 'Стандартное время реакции', 'Неиспользованные оплаченные часы переносятся на следующий месяц']"></tariff-block>
+            <tariff-block class="relative z-10" [isMain]=true upperDesc="Бизнес" [cost]=2200 [points]="['Предоплата от 10 часов', 'Консультации и работы по SEO', 'Услуги дизайнера', 'Высокое время реакции – до 2 рабочих дней', 'Неиспользованные часы не переносятся']"></tariff-block>
+            <tariff-block class="transform translate-x-[-22px] relative z-0" upperDesc="VIP" [cost]=1800 [points]="['Предоплата от 100 часов', 'Консультации и работы по SEO', 'Услуги дизайнера', 'Максимальное время реакции – в день обращения', 'Неиспользованные часы не переносятся']"></tariff-block>
+        </div>
     </div>
     <div class="flex justify-center">
         <div id="lower-info">Вам не подходят наши тарифы? Оставьте заявку и мы предложим вам индивидуальные условия!</div>

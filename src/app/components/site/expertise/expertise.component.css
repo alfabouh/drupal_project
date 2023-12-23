@@ -1,17 +1,19 @@
 #block4 {
+    position: relative;
+    z-index: 1;
     width: 100%;
-    height: 939px;
+    height: 1540px;
     flex-shrink: 0;
     background: linear-gradient(261deg, rgba(75, 75, 105, 0.55) -114.85%, rgba(5, 5, 20, 1) 69.04%), #394047;
-    z-index: -1;
-    margin-bottom: 160px;
+    transform: translateY(-208px);
+
 }
 
 #title {
     width: 480px;
     color: var(--White, #FFF);
     font-family: Montserrat;
-    font-size: 42px;
+    font-size: 32px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -19,16 +21,32 @@
 }
 
 #inner-block {
-    padding-left: 730px;
-    padding-top: 405px;
+    padding-left: 20px;
+    padding-top: 220px;
 }
 
-#background-img {
-    position: absolute;
-    transform: translateY(412px);
+#ghost-block {
+    width: 100%;
+    height: calc(100% + 130px);
+    position: relative;
+    z-index: 2;
+    background-image: url("/assets/img/Group_note.svg");
+    background-position: left 100%;
+    background-repeat: no-repeat;
 }
 
-#background-img-shadow {
-    position: absolute;
-    transform: translateY(975px);
+@media only screen and (min-width: 1024px) {
+    #block4 {
+        height: 939px;
+        margin-bottom: 160px;
+    }
+
+    #inner-block {
+        margin-left: 50%;
+        padding-top: 405px;
+    }
+
+    #title {
+        font-size: 42px;
+    }
 }

@@ -129,14 +129,14 @@
     line-height: 28px;
 }
 
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 1024px) {
     .tariff-block-main {
         width: 420px;
         margin-left: 0px;
         margin-right: 0px;
     }
 
-    .tariff-block {;
+    .tariff-block {
         margin-bottom: 0px;
     }
     
