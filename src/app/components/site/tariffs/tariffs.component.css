@@ -1,8 +1,10 @@
 #block5 {
     background-image: url("/assets/img/D.svg");
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: top right;
-    margin-bottom: 160px;
+    margin-bottom: 40px;
+    margin-top: 1332px;
 }
 
 #title {
@@ -17,7 +19,7 @@
     color: #000;
     text-align: center;
     font-family: Montserrat;
-    font-size: 24px;
+    font-size: 28px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -70,11 +72,19 @@ button {
         width: 580px;
         font-size: 42px;
         margin-bottom: 86px;
-        margin-top: 0px;
+        margin-top: 80px;
     }
 
     #blocks {
         margin-bottom: 72px;
     }
 
+}
+
+@media only screen and (min-width: 1024px) {
+    #block5 {
+        margin-bottom: 160px;
+        margin-top: 731px;
+        background-size: 100%;
+    }
 }
