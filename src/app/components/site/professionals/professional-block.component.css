@@ -1,17 +1,18 @@
-
 .icon-b {
     position: absolute;
     transform: translateY(17px) translateX(-55px);
     width: 114px;
     height: 71px;
     flex-shrink: 0;
+    margin-left: 55px;
   }
-  
+
 .icon-m {
   width: 81px;
   height: 81px;
   flex-shrink: 0;
   margin-bottom: 10px;
+  margin-left: 55px;
 }
 
 #title {
@@ -22,6 +23,7 @@
     font-weight: 700;
     line-height: normal;
     margin-bottom: 10px;
+    margin-left: 40px;
 }
 
 #description {
@@ -32,5 +34,28 @@
     font-style: normal;
     font-weight: 500;
     line-height: 22px;
-    opacity: 0.7;
+    
+}
+
+.desc-block{
+  margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 640px) {
+  #title {
+    margin-left: 0px;
+}
+
+.icon-m {
+  margin-left: 0px;
+}
+
+.icon-b {
+  margin-left: 55px;
+}
+
+#description {
+  opacity: 0.7;
+}
+
 }

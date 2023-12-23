@@ -3,8 +3,8 @@
 }
 
 #block7 button {
-    width: 260px;
-    height: 60px;
+    width: 160px;
+    height: 34px;
     flex-shrink: 0;
     border-radius: 5px;
     border: 1px solid rgb(5, 12, 51, 0.2);
@@ -18,18 +18,43 @@
     font-style: normal;
     font-weight: 500;
     line-height: 12px; /* 100% */
-    letter-spacing: 0.72px;
     text-transform: uppercase;
+}
+
+#all-team{
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
 #title {
     color: var(--main-black, #050C33);
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 20px;
     /* titles/h2 */
     font-family: Montserrat;
-    font-size: 42px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+}
+
+@media only screen and (min-width: 640px) {
+    #title {
+        font-size: 42px;
+        margin-bottom: 80px;
+    }
+
+    #all-team{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    
+    #block7 button {
+        width: 260px;
+        height: 60px;
+    }
+
+    #block7 button span {
+        letter-spacing: 0.72px;
+    }
 }
