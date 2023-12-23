@@ -2,12 +2,13 @@ import * as ThreeJs from 'three';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
 import { TextGeometry, TextGeometryParameters } from 'three/examples/jsm/geometries/TextGeometry.js';
 import $ from 'jquery';
-import { fTextShader, vTextShader } from './shaders/text-shaders';
+import { fTextShader, fTextShaderMobile, vTextShader } from './shaders/text-shaders';
 import { Utils } from 'src/app/utils/Utils';
-import { fGaussShader, vGaussShader } from './shaders/post-effect';
-import { fOutputShader, vOutputShader } from './shaders/output';
+import { fGaussShader, fGaussShaderMobile, vGaussShader } from './shaders/post-effect';
+import { fOutputShader, fOutputShaderMobile, vOutputShader } from './shaders/output';
 
 let renderer: ThreeJs.Renderer;
+const min_mobile: number = 824;
 
 let scene: ThreeJs.Object3D;
 let camera: ThreeJs.OrthographicCamera;
@@ -24,8 +25,29 @@ let init: boolean = false;
 
 let renderTarget: any | null = null;
 let renderTarget2: any | null = null;
+let mrtShaderGauss: ThreeJs.ShaderMaterial;
+let outShaderGauss: ThreeJs.ShaderMaterial;
 
 $(() => {
+    mrtShaderGauss = new ThreeJs.ShaderMaterial({
+        uniforms: {
+            texture1: { value: null },
+            t_width: { value: 0 },
+            t_height: { value: 0 }
+        },
+        vertexShader: vGaussShader,
+        fragmentShader: isMobile() ? fGaussShaderMobile : fGaussShader
+    });
+    outShaderGauss = new ThreeJs.ShaderMaterial({
+        uniforms: {
+            texture1: { value: null },
+            texture2: { value: null },
+            mouse: { value: new ThreeJs.Vector2(mouseVector.x / getWinWidth(), 1.0 - mouseVector.y / getWinHeight()) }
+        },
+        vertexShader: vOutputShader,
+        fragmentShader: isMobile() ? fOutputShaderMobile : fOutputShader
+    });
+
     updatePlanes();
     renderer = new ThreeJs.WebGLRenderer();
     renderer.setSize(getWinWidth(), getWinHeight());
@@ -55,8 +77,12 @@ $(() => {
     init = true;
 });
 
+function isMobile(): boolean {
+    return getWinWidth() <= min_mobile;
+}
+
 function getWinWidth(): number {
-    return $("#block1").width() as number;
+    return $("#render_head").width() as number;
 }
 
 function getWinHeight(): number {
@@ -87,24 +113,6 @@ function setCameraFrustum(camera: ThreeJs.OrthographicCamera): void {
     camera.far = 1000;
 }
 
-const mrtShaderGauss: ThreeJs.ShaderMaterial = new ThreeJs.ShaderMaterial({
-    uniforms: {
-        texture1: { value: null },
-        t_width: { value: 0 },
-        t_height: { value: 0 }
-    },
-    vertexShader: vGaussShader,
-    fragmentShader: fGaussShader
-});
-const outShaderGauss: ThreeJs.ShaderMaterial = new ThreeJs.ShaderMaterial({
-    uniforms: {
-        texture1: { value: null },
-        texture2: { value: null },
-        mouse: { value: new ThreeJs.Vector2(mouseVector.x / getWinWidth(), 1.0 - mouseVector.y / getWinHeight()) }
-    },
-    vertexShader: vOutputShader,
-    fragmentShader: fOutputShader
-});
 let mrtPlane1: ThreeJs.PlaneGeometry;
 let mrtPlane2: ThreeJs.PlaneGeometry;
 let mesh1: ThreeJs.Mesh;
@@ -183,7 +191,7 @@ class StringRenderMesh {
     }
 
     public get getAppendSpeed(): number {
-        return this.appendSpeed;
+        return isMobile() ? this.appendSpeed * 0.5 : this.appendSpeed;
     }
 
     public tick(delta: number): void {
@@ -205,7 +213,7 @@ class StringRenderMesh {
     public static fontParams(font: any): TextGeometryParameters {
         return {
             font: font,
-            size: 18,
+            size: isMobile() ? 16 : 18,
             height: 5,
             curveSegments: 1
         }
@@ -248,7 +256,7 @@ class StringRenderMesh {
                 this.currentTextGeometry = new TextGeometry(e as string, StringRenderMesh.fontParams(font));
                 this.currentMaterial = new ThreeJs.ShaderMaterial({
                     vertexShader: vTextShader,
-                    fragmentShader: fTextShader,
+                    fragmentShader: isMobile() ? fTextShaderMobile : fTextShader,
                     uniforms: {
                         appearFactor: { value: 0 },
                         fadeFactor: { value: 0 },

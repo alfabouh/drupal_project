@@ -1,22 +1,24 @@
-  <div class="absolute">
-    <svg class="my-10" xmlns="http://www.w3.org/2000/svg" width="3" height="80" viewBox="0 0 3 80" fill="none">
-      <rect width="3" height="80" fill="#F14D34"/>
-    </svg>
-  </div>
-  <div class="w-32 h-40">
-    <div class="mx-3">
-      <div class="h-14 my-2">
-        <div class="grid grid-cols-2">
-          <div>
-            <h1 [class]="titleClass"> {{ titleText }} </h1>
-          </div>
-          <div>
-            <ng-container *ngIf="titleImgLink !== ''">
-              <img id="d-img" alt="1 place" [src]="titleImgLink" >
-            </ng-container>
+  <div class="mr-[24px]">
+    <div class="absolute">
+      <svg class="my-10" xmlns="http://www.w3.org/2000/svg" width="3" height="80" viewBox="0 0 3 80" fill="none">
+        <rect width="3" height="80" fill="#F14D34"/>
+      </svg>
+    </div>
+    <div class="w-32 h-40">
+      <div class="mx-3">
+        <div class="h-14 my-2">
+          <div class="grid grid-cols-2">
+            <div>
+              <h1 [class]="titleClass"> {{ titleText }} </h1>
+            </div>
+            <div>
+              <ng-container *ngIf="titleImgLink !== ''">
+                <img id="d-img" alt="1 place" [src]="titleImgLink" >
+              </ng-container>
+            </div>
           </div>
         </div>
+        <div id="desc-text" [innerHTML]="innerText"></div>
       </div>
-      <div id="desc-text" [innerHTML]="innerText"></div>
     </div>
   </div>

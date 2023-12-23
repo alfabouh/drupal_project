@@ -35,7 +35,6 @@ export class HeadButton {
 
     public scrollTo(): void {
         const to: any = $(this.link).offset()?.top;
-        console.log(to);
         $('html, body').animate({
             scrollTop: to
         }, 320);
