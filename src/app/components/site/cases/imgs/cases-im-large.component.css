@@ -1,13 +1,13 @@
 #imblock {
-    width: 780px;
-    height: 475px;
+    width: 340px;
+    height: 280px;
     flex-shrink: 0;
 }
 
 #inner-img {
     position: absolute;
-    width: 780px;
-    height: 475px;
+    width: 340px;
+    height: 260px;
     flex-shrink: 0;
     object-fit: cover;
     border-radius: 5px;
@@ -16,11 +16,29 @@
 #title {
     width: 300px;
     color: #FFF;
-    margin-top: 391px;
-    margin-left: 40px;
+    margin-top: 200px;
+    margin-left: 20px;
     font-family: Montserrat;
-    font-size: 18px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+}
+
+@media only screen and (min-width: 1024px) {
+    #imblock {
+        width: 780px;
+        height: 475px;
+    }
+    
+    #inner-img {
+        width: 780px;
+        height: 475px;
+    }
+
+    #title {
+        margin-top: 391px;
+        font-size: 18px;
+        margin-left: 40px;
+    }
 }
