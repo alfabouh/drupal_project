@@ -8,7 +8,7 @@
 #title {
     display: flex;
     margin-bottom: 86px;
-    width: 580px;
+    width: 320px;
     height: 30px;
     flex-direction: column;
     justify-content: center;
@@ -22,9 +22,6 @@
     line-height: normal;
 }
 
-#blocks {
-    margin-bottom: 72px;
-}
 
 button span {
     color: var(--main-black, #050C33);
@@ -50,7 +47,7 @@ button {
 }
 
 #lower-info {
-    width: 468px;
+    width: 390px;
     color: var(--main-black, #050C33);
     text-align: center;
 
@@ -61,4 +58,19 @@ button {
     font-weight: 500;
     line-height: 22px; /* 137.5% */
     opacity: 0.5;
+}
+
+@media only screen and (min-width: 640px) {
+    #lower-info {
+        width: 468px;
+    }
+
+    #title { 
+        width: 580px;
+    }
+
+    #blocks {
+        margin-bottom: 72px;
+    }
+
 }
