@@ -65,7 +65,6 @@ export class FooterContactComponent {
             return;
         }
         console.log("Sending!");
-        const url: string = 'https://api.slapform.com/MqD3VM017'
         const mailCnst: string = $(this.form_mail?.nativeElement).val() as string;
         const nameCnst: string = $(this.form_name?.nativeElement).val() as string;
         const phoneCnst: string = $(this.form_phone?.nativeElement).val() as string;
@@ -102,9 +101,19 @@ export class FooterContactComponent {
         formData.append("Phone: ", phoneCnst as string);
         formData.append("Message: ", $(this.form_field2?.nativeElement).val() as string);
 
-        fetch(url, {
+        let jsonObject: any = {};
+        formData.forEach((v, k) => {
+          jsonObject[k] = v;
+        });
+        
+        var jsonString = JSON.stringify(jsonObject);
+
+        fetch('https://api.slapform.com/MqD3VM017', {
             method: 'POST',
-            body: formData
+            body: jsonString,
+            headers: {
+              'Content-Type': 'application/json'
+            }
         }).then(e => {
             if (e.ok) {
                 this.successStatus();

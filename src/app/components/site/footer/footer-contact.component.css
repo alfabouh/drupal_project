@@ -9,11 +9,18 @@
 
 #contact {
     flex-shrink: 0;
-    width: 480px;
+    width: auto;
+}
+
+@media (min-width: 640px) {
+    #contact {
+        flex-shrink: 0;
+        width: 480px;
+    }
 }
 
 #checkText {
-    width: 428px;
+    width: 80%;
     height: 31px;
     flex-shrink: 0;
     color: #FFF;
@@ -59,7 +66,7 @@ button {
     margin-top: 50px;
     border-radius: 5px;
     border: 2px solid var(--icons-1, #F14D34);
-    width: 480px;
+    width: 100%;
     height: 60px;
     flex-shrink: 0;
     background-color: #F14D34;
@@ -111,7 +118,7 @@ button:hover {
     font-weight: 500;
     line-height: 16px; /* 114.286% */
     padding-left: 24px;
-    width: 480px;
+    width: 100%;
     height: 67px;
     flex-shrink: 0;
     background-color: transparent;
@@ -130,7 +137,7 @@ button:hover {
     line-height: 16px; /* 114.286% */
     padding-top: 15px;
     padding-left: 24px;
-    width: 480px;
+    width: 100%;
     height: 127px;
     flex-shrink: 0;
     background-color: transparent;
