@@ -4,7 +4,7 @@
 }
 
 #title {
-    width: 406px;
+    width: 206px;
     color: var(--main-black, #050C33);
     text-align: center;
     font-family: Montserrat;
@@ -12,12 +12,13 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-bottom: 56px;
+    
 }
 
 @media only screen and (min-width: 600px) {
     #title {
         font-size: 42px; 
+        width: 406px;margin-bottom: 56px;
     }
 
     #blocks {
