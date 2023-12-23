@@ -32,7 +32,7 @@
     margin-bottom: 50px;
   }
 
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 640px) {
     .desc-block {
       margin-right: 117px;
     }

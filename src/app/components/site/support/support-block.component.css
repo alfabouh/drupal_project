@@ -61,7 +61,7 @@ img {
     margin-bottom: 20px;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 640px) {
     #sblock {
         height: 292px;
     }

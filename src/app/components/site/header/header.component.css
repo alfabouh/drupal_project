@@ -12,7 +12,7 @@
   width: 100%;
   background-color: #000000;
   box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.1);
-  z-index: 2;
+  z-index: 200;
 }
 
 #logo {
@@ -70,7 +70,7 @@
   background-color: #F14D34;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 640px) {
   #block1 {
     height: 650px;
   }
