@@ -3,12 +3,6 @@
     margin-bottom: 390px;
 }
 
-#blocks {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-}
-
 #title {
     width: 406px;
     color: var(--main-black, #050C33);
@@ -24,5 +18,11 @@
 @media only screen and (min-width: 600px) {
     #title {
         font-size: 42px; 
+    }
+
+    #blocks {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
     }
   }
