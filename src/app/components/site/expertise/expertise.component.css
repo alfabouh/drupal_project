@@ -1,12 +1,6 @@
 #block4 {
-    position: relative;
-    z-index: 1;
     width: 100%;
-    height: 1540px;
-    flex-shrink: 0;
-    background: linear-gradient(261deg, rgba(75, 75, 105, 0.55) -114.85%, rgba(5, 5, 20, 1) 69.04%), #394047;
-    transform: translateY(-208px);
-
+    margin-bottom: 132px;
 }
 
 #title {
@@ -21,11 +15,19 @@
 }
 
 #inner-block {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 1540px;
+    flex-shrink: 0;
+    background: linear-gradient(261deg, rgba(75, 75, 105, 0.55) -114.85%, rgba(5, 5, 20, 1) 69.04%), #394047;
+    transform: translateY(-208px);
     padding-left: 20px;
     padding-top: 220px;
 }
 
 #ghost-block {
+    position: absolute;
     width: 100%;
     height: calc(100% + 130px);
     position: relative;
