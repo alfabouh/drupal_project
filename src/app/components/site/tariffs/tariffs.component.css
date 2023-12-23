@@ -7,7 +7,8 @@
 
 #title {
     display: flex;
-    margin-bottom: 86px;
+    margin-bottom: 15px;
+    margin-top: 86px;
     width: 320px;
     height: 30px;
     flex-direction: column;
@@ -16,7 +17,7 @@
     color: #000;
     text-align: center;
     font-family: Montserrat;
-    font-size: 42px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -67,6 +68,9 @@ button {
 
     #title { 
         width: 580px;
+        font-size: 42px;
+        margin-bottom: 86px;
+        margin-top: 0px;
     }
 
     #blocks {
