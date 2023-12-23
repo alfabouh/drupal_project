@@ -3,6 +3,7 @@
   overflow: hidden;
   height: 100%;
   margin-bottom: 50px;
+  width: 100%;
 }
 
 #content {
@@ -71,10 +72,6 @@
 }
 
 @media only screen and (min-width: 640px) {
-  #block1 {
-    height: 650px;
-  }
-
   #container {
     text-align: initial;
   }

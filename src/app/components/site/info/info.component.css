@@ -1,7 +1,8 @@
 #block2 {
   position: relative;
+  margin-top: 100px;
   margin-bottom: 110px;
-  margin-left:25px;
+  width: 100%;
 }
 
 #main_title {
@@ -42,5 +43,4 @@
   #main_desc {
     width: 493px;
   }
-
 }

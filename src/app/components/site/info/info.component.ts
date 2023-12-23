@@ -11,7 +11,15 @@ $(() => {
     styleUrls: ['./info.component.css' ]
 })
 export class InfoComponent {
-    constructor() {
+
+    constructor(private elementRef: ElementRef) {
+    }
+
+    public ngAfterViewInit(): void {
+        $("#block2").css({"margin-left": ($("#logo").offset()?.left as number) + "px"});
+        $(window).on('resize', e => {
+            $("#block2").css({"margin-left": ($("#logo").offset()?.left as number) + "px"});
+        });
     }
 }
 
