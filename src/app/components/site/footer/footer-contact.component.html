@@ -1,10 +1,10 @@
 <div id="contact">
-    <input id="name" type="text" class="field" placeholder="Ваше имя">
-    <input id="phone" type="text" class="field" placeholder="Телефон">
-    <input id="mail" type="email" class="field" placeholder="E-mail">
-    <textarea class="field2" placeholder="Ваш комментарий"></textarea>
+    <input type="text" class="field" placeholder="Ваше имя" #form_name>
+    <input type="text" class="field" placeholder="Телефон" #form_phone>
+    <input type="email" class="field" placeholder="E-mail" #form_mail>
+    <textarea class="field2" placeholder="Ваш комментарий" #form_field2></textarea>
     <label class="flex custom-checkbox">
-      <input class="hidden-checkbox" type="checkbox">
+      <input class="hidden-checkbox" type="checkbox" #form_box>
       <span class="checkmark"></span>
       <div id="checkText">Отправляя заявку, я даю согласие на <a href="/" style="color: #f14d34;">обработку своих персональных данных.</a> <a style="font-size: 20px; color: red;">*</a></div>
     </label>

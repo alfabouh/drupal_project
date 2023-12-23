@@ -64,11 +64,11 @@ export class HeadButton {
                     'top': this.elementRef.nativeElement.getBoundingClientRect().top + this.elementRef.nativeElement.querySelector('button').offsetHeight
                 })
                 if (!$(this.menuId).is(":animated")) {
-                    $(this.menuId).show(200);
+                    $(this.menuId).show(100);
                 }
             });
             $(this.elementRef.nativeElement).on("mouseleave", (e) => {
-                $(this.menuId).hide(200);
+                $(this.menuId).hide(100);
             });
         }
     }

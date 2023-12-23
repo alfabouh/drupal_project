@@ -6,6 +6,10 @@ export class PopupState {
     @observable
     public isShown: boolean = false;
 
+    public isWainig(): boolean {
+        return this.popupState === -1;
+    }
+
     @action
     public show(): void {
         this.isShown = true;
@@ -23,12 +27,7 @@ export class PopupState {
     }
 
     @action
-    public failure(): void {
-        this.popupState = 1;
-    }
-
-    @action
-    public success(): void {
-        this.popupState = 2;
+    public waiting(): void {
+        this.popupState = -1;
     }
 }
