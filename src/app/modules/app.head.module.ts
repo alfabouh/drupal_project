@@ -22,4 +22,5 @@ import { PopupState } from "../components/site/service/popup";
     exports: [HeaderComponent]
 })
 export class HeadModule {
+    title = "drupal project";
 }

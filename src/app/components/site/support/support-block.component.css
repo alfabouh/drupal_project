@@ -1,5 +1,5 @@
 #sblock {
-    width: 292px;
+    width: 100%;
     height: 292px;
     flex-shrink: 0;
     border-radius: 5px;
@@ -50,3 +50,9 @@ img {
     width: 232px;
     margin-bottom: 20px;
 }
+
+@media only screen and (min-width: 600px) {
+    #sblock {
+        height: 292px;
+    }
+  }
