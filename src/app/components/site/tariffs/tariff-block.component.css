@@ -1,28 +1,3 @@
-.tariff-block-main {
-    width: 370px;
-    height: 665px;
-    flex-shrink: 0;
-    border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.10);
-    background: #FFF;
-    box-shadow: 0px 4px 60px 0px rgba(161, 161, 161, 0.25);
-    transform: translateY(-23px);
-    margin-left: 15px;
-    margin-right: 15px;
-    
-}
-
-.tariff-block {
-    width: 370px;
-    height: 619px;
-    border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.10);
-    background: #FFF;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-bottom: 47px;
-}
-
 #upper {
     color: var(--icons-1, #F14D34);
     font-family: Montserrat;
@@ -91,7 +66,7 @@
 }
 
 .tariff-block-main button {
-    width: 300px;
+    width: 100%;
     height: 60px;
     flex-shrink: 0;
     border-radius: 5px;
@@ -111,7 +86,7 @@
 }
 
 .tariff-block button {
-    width: 260px;
+    width: 100%;
     height: 60px;
     flex-shrink: 0;
     border-radius: 5px;
@@ -129,7 +104,62 @@
     line-height: 28px;
 }
 
+.tariff-block-main {
+    width: 100%;
+    height: 665px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    background: #FFF;
+    box-shadow: 0px 4px 60px 0px rgba(161, 161, 161, 0.25);
+    transform: translateY(-23px);
+    margin-left: 15px;
+    margin-right: 15px;   
+}
+
+.tariff-block {
+    width: 100%;
+    height: 619px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    background: #FFF;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 47px;
+}
+
+@media only screen and (min-width: 640px) {
+    .tariff-block-main button {
+        width: 300px;
+    }
+    
+    .tariff-block button {
+        width: 260px;
+    }
+
+    .tariff-block-main {
+        width: 420px;
+    }
+
+    .tariff-block {
+        width: 420px;
+    } 
+}
+
 @media only screen and (min-width: 1024px) {
+    .tariff-block-main {
+        margin-left: 0px;
+        margin-right: 0px;
+        width: 350px;
+    }
+
+    .tariff-block {
+        margin-bottom: 0px;
+        width: 300px;
+    } 
+}
+
+@media only screen and (min-width: 1220px) {
     .tariff-block-main {
         width: 420px;
         margin-left: 0px;
@@ -138,6 +168,6 @@
 
     .tariff-block {
         margin-bottom: 0px;
-    }
-    
+        width: 370px;
+    } 
 }
