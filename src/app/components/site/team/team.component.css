@@ -1,5 +1,5 @@
 #block7 {
-    margin-bottom: 160px;
+    margin-bottom: 80px;
 }
 
 #block7 button {
@@ -39,6 +39,10 @@
 }
 
 @media only screen and (min-width: 640px) {
+    #block7 {
+        margin-bottom: 160px;
+    }
+
     #title {
         font-size: 42px;
         margin-bottom: 80px;
