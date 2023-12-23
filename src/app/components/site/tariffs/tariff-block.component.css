@@ -1,5 +1,5 @@
 .tariff-block-main {
-    width: 350px;
+    width: 370px;
     height: 665px;
     flex-shrink: 0;
     border-radius: 5px;
@@ -13,7 +13,7 @@
 }
 
 .tariff-block {
-    width: 350px;
+    width: 370px;
     height: 619px;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.10);
