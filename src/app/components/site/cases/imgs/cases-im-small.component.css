@@ -1,11 +1,11 @@
 #imblock {
-    width: 340px;
+    width: 360px;
     height: 340px;
     flex-shrink: 0;
 }
 
 #inner-img {
-    width: 340px;
+    width: 360px;
     height: 120px;
     flex-shrink: 0;
     object-fit: cover;
@@ -50,6 +50,17 @@
 }
 
 @media only screen and (min-width: 1024px) {
+    #imblock {
+        width: 320px;
+        height: 475px;
+    }
+    #inner-img {
+        width: 320px;
+        height: 215px;
+    }
+}
+
+@media only screen and (min-width: 1180px) {
     #imblock {
         width: 380px;
         height: 475px;

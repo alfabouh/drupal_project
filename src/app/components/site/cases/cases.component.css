@@ -1,6 +1,6 @@
 #block6 {
-    width: 340px;
-    height: 2200px;
+    width: 100%;
+    height: auto;
     flex-shrink: 0;
     margin-bottom: 160px;
 }
@@ -47,8 +47,8 @@
     }
 
     #block6 {
-        width: 1180px;
-        height: 1656px;
+        width: 100%;
+        height: auto;
     }
 
     #block6 button {

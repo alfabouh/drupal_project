@@ -15,7 +15,7 @@ let camera: ThreeJs.OrthographicCamera;
 let RenderCharMaxWidth: number = 0;
 let RenderCharMaxHeight: number = 0;
 let MaxRenderStrokes: number = 0;
-let maxRenders = 128;
+let maxRenders = 256;
 let strMesh: StringRenderMesh[] = new Array<StringRenderMesh>(maxRenders);
 let WIDTH_PRC: number = 1.0;
 let HEIGHT_PRC: number = 1.0;
@@ -98,7 +98,7 @@ async function calcFontBounds() {
             let e: number[] = new Array<number>(2);
             e[0] = (newtextGeometry.boundingBox as ThreeJs.Box3).max.x - (newtextGeometry.boundingBox as ThreeJs.Box3).min.x;
             e[1] = (newtextGeometry.boundingBox as ThreeJs.Box3).max.y - (newtextGeometry.boundingBox as ThreeJs.Box3).min.y;
-            MaxRenderStrokes = (getWinHeight() / e[1] - 1) * 0.5 - 1;
+            MaxRenderStrokes = (getWinHeight() / e[1]) * 0.5 - 1;
             resolve(e);
         });
     });
@@ -266,8 +266,8 @@ class StringRenderMesh {
                 this.currentMesh = new ThreeJs.Mesh(this.currentTextGeometry, this.currentMaterial);
                 this.currentTextGeometry.computeBoundingBox();
                 this.meshLength = (this.currentTextGeometry.boundingBox as ThreeJs.Box3).max.x - (this.currentTextGeometry.boundingBox as ThreeJs.Box3).min.x;
-                let offset: number = getWinHeight() - (MaxRenderStrokes * RenderCharMaxHeight * 2.0) - RenderCharMaxHeight * 2.0;
-                this.currentMesh.position.set(0, (this.id * (RenderCharMaxHeight * 2.0)) + offset, 0);
+                let offset: number = getWinHeight() - (MaxRenderStrokes * RenderCharMaxHeight * 2.0) - RenderCharMaxHeight * 1.5;
+                this.currentMesh.position.set(0, (this.id * (RenderCharMaxHeight * 2.0)) + RenderCharMaxHeight * 0.5, 0);
                 this.currentMaterial.uniforms.meshLength.value = this.meshLength;
                 this.addToScene();
             });

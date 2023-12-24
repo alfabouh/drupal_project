@@ -71,6 +71,7 @@ button {
     flex-shrink: 0;
     background-color: #F14D34;
     transition: background-color 0.5s ease;
+    margin-bottom: 5px;
 }
 
 button:hover {

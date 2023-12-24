@@ -14,7 +14,7 @@
 
     /* titles/h2 */
     font-family: Montserrat;
-    font-size: 24px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -28,8 +28,19 @@
     transform: translateY(5px);
     /* titles/h2 */
     font-family: Montserrat;
-    font-size: 14px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 550;
     line-height: normal;
+}
+
+@media only screen and (min-width: 820px) {
+    #desc {
+        font-family: Montserrat;
+        font-size: 14px;
+    }
+    
+    #title {
+        font-size: 24px;
+    }
 }
