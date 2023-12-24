@@ -76,7 +76,7 @@
   }
 
   #page-title {
-    font-size: 52px;
+    font-size: 46px;
     margin-top:0px;
   }
 
@@ -97,5 +97,12 @@
     background-color: transparent;
     box-shadow: none;
     z-index: 1;
+  }
+}
+
+@media only screen and (min-width: 820px) {
+  #page-title {
+    font-size: 52px;
+    margin-top:0px;
   }
 }

@@ -16,7 +16,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-bottom: 59px;
+    margin-bottom: 30px;
 }
 
 #inner-block {
@@ -48,5 +48,6 @@
 
     #title {
         font-size: 42px;
+        margin-bottom: 60px;
     }
 }

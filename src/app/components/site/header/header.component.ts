@@ -56,6 +56,9 @@ export class HeadButton {
         if (this.isMenu()) {
             $(this.menuId).hide();
             $(this.elementRef.nativeElement).append($(this.menuId));
+            $(this.elementRef.nativeElement).on("click touchstart", (e) => {
+                $(this.elementRef.nativeElement).trigger("mouseenter");
+            });
             $(this.elementRef.nativeElement).on("mouseenter", (e) => {
                 $(this.menuId).css({
                     'position': 'fixed',
