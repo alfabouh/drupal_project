@@ -15,7 +15,7 @@
 }
 
 #decoration1 {
-    width: 300px;
+    width: 200px;
     height: 25px;
     flex-shrink: 0;
     border-radius: 5px;
@@ -93,23 +93,23 @@
     transform: rotate(90deg);
   }
 
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 768px) {
     #title {
         font-size: 42px;
     }
 
     #feedback-main-decoration {
-        width: 980px;
+        width: 740px;
     }
 
     #decoration2 {
-        width: 852px;
+        width: 612px;
         height: 457px;
         margin-top: 0px;
     }
 
     #decoration1 {
-        width: 724px;
+        width: 484px;
         height: 466px;
         margin-top: 0px;
     }
@@ -125,5 +125,22 @@
     #feedback {
         margin-top: 46px;
     }
+}
 
+@media only screen and (min-width: 1024px) {
+    #feedback-main-decoration {
+        width: 980px;
+    }
+
+    #decoration2 {
+        width: 852px;
+        height: 457px;
+        margin-top: 0px;
+    }
+
+    #decoration1 {
+        width: 724px;
+        height: 466px;
+        margin-top: 0px;
+    }
 }
