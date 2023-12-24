@@ -1,13 +1,29 @@
 import { action, observable } from "mobx";
 
-export class PopupState {
+export class MobXStates {
     @observable
     public popupState: number = -1;
     @observable
     public isShown: boolean = false;
+    @observable
+    public mobileMenuOpened: boolean = false;
 
     public isWainig(): boolean {
         return this.popupState === -1;
+    }
+
+    @action
+    public openMobileMenu(): void {
+        this.mobileMenuOpened = true;
+    }
+
+    @action
+    public closeMobileMenu(): void {
+        this.mobileMenuOpened = false;
+    }
+
+    public isMobileMenuOpened(): boolean {
+        return this.mobileMenuOpened;
     }
 
     @action

@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
 import { MainComponent } from "./main.component";
-import { PopupState } from "../service/popup";
+import { MobXStates } from "../service/stetemobx";
 import { RouterOutlet } from "@angular/router";
 import { SlickCarouselModule } from "ngx-slick-carousel";
 import { CasesModule } from "src/app/modules/app.cases.module";
@@ -40,7 +40,7 @@ import { SiteRoutingModule } from "./routing/site.routing.module";
         RouterOutlet
     ],
     declarations: [MainComponent],
-    providers: [PopupState]
+    providers: [MobXStates]
 })
 export class MainModule {
 }

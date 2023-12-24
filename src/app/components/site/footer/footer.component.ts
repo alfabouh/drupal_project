@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import * as $ from 'jquery';
 import { Utils } from "src/app/utils/Utils";
-import { PopupState } from "../service/popup";
+import { MobXStates } from "../service/stetemobx";
 
 @Component({
     selector: "app-footer",
@@ -28,7 +28,7 @@ export class FooterContactComponent {
     @ViewChild('form_box') form_box: ElementRef | null = null;
     @ViewChild('form_field2') form_field2: ElementRef | null = null;
 
-    constructor(private elementRef: ElementRef, public pstate: PopupState) {
+    constructor(private elementRef: ElementRef, public pstate: MobXStates) {
     }
 
     public sendingStatus(): void {

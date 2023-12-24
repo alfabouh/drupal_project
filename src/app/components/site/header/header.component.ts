@@ -1,7 +1,7 @@
 import { Component, Input, ElementRef, Renderer2, ViewChild } from "@angular/core";
 import { onrender } from "./render/render.background";
 import * as $ from 'jquery';
-import { PopupState } from "../service/popup";
+import { MobXStates } from "../service/stetemobx";
 import { NavigationEnd, Router } from "@angular/router";
 
 @Component({
@@ -15,6 +15,10 @@ export class MenuButton {
 
     constructor(private elementRef: ElementRef) {
     }
+
+    public isMobile(): boolean {
+        return window.innerWidth < 640;
+    }
 }
 
 @Component({
@@ -25,7 +29,7 @@ export class MenuButton {
 export class HeadButton {
     @ViewChild('buttonMenu') buttonMenu: ElementRef | null = null;
     @Input() innerText: string = "";
-    @Input() textClass: string = "button-d mx-3";
+    @Input() textClass: string = "button-d mr-0 sm:mr-[20px]";
     @Input() menuId: string = "";
     @Input() link: string = ".section_head";
     public svgWidth: number = 0;
@@ -45,36 +49,54 @@ export class HeadButton {
     }
 
     public getClassList(): string {
-        let textClass: string = this.textClass;
-        if (this.isMenu()) {
-            textClass += " menub";
-        }
-        return textClass;
+        return this.textClass;
     }
 
     public ngOnInit(): void {
+        this.init();
+        $(window).on('resize', e => {
+            this.init();
+        });
+    }
+
+    private init(): void {
+        $(this.menuId).off();
+        $(this.elementRef.nativeElement).off();
+        $(this.menuId).css({
+            'position': 'relative',
+            'left': 0,
+            'top': 0
+        })
         if (this.isMenu()) {
-            $(this.menuId).hide();
-            $(this.elementRef.nativeElement).append($(this.menuId));
-            $(this.elementRef.nativeElement).on("click touchstart", (e) => {
-                $(this.elementRef.nativeElement).trigger("mouseenter");
-            });
-            $(this.elementRef.nativeElement).on("mouseenter", (e) => {
-                $(this.menuId).css({
-                    'position': 'fixed',
-                    'left': this.elementRef.nativeElement.getBoundingClientRect().left + 12,
-                    'top': this.elementRef.nativeElement.getBoundingClientRect().top + this.elementRef.nativeElement.querySelector('button').offsetHeight
-                })
-                if (!$(this.menuId).is(":animated")) {
-                    $(this.menuId).show(100);
-                }
-            });
-            $(this.elementRef.nativeElement).on("mouseleave", (e) => {
-                $(this.menuId).hide(100);
-            });
-            $(window).on('scroll', e => {
-                $(this.elementRef.nativeElement).trigger("mouseleave");
-            });
+            if (window.innerWidth >= 640) {
+                $(this.menuId).hide();
+                $(this.elementRef.nativeElement).append($(this.menuId));
+                $(this.elementRef.nativeElement).on("click touchstart", (e) => {
+                    $(this.elementRef.nativeElement).trigger("mouseenter");
+                });
+                $(this.elementRef.nativeElement).on("mouseenter", (e) => {
+                    $(this.menuId).css({
+                        'position': 'fixed',
+                        'left': this.elementRef.nativeElement.getBoundingClientRect().left,
+                        'top': this.elementRef.nativeElement.getBoundingClientRect().top + this.elementRef.nativeElement.querySelector('button').offsetHeight
+                    })
+                    if (!$(this.menuId).is(":animated")) {
+                        $(this.menuId).show(100);
+                    }
+                });
+                $(this.elementRef.nativeElement).on("mouseleave", (e) => {
+                    $(this.menuId).hide(100);
+                });
+                $(window).on('scroll', e => {
+                    $(this.elementRef.nativeElement).trigger("mouseleave");
+                });
+            } else {
+                $(this.menuId).show();
+                $(this.elementRef.nativeElement).append($(this.menuId));
+                $(this.elementRef.nativeElement).on("click touchstart", (e) => {
+                    $(this.elementRef.nativeElement).trigger("mouseenter");
+                });
+            }
         }
     }
 
@@ -94,11 +116,40 @@ export class HeadButton {
     styleUrls: ['./header.component.css' ]
 })
 export class HeaderComponent {
-    constructor(private router: Router, public pstate: PopupState){
+    @ViewChild('mobilemenu') mobilemenu: ElementRef | null = null;
+
+    constructor(private router: Router, public pstate: MobXStates) {
     }
 
     public ngOnInit(): void {
         onrender();
+    }
+
+    public init(): void {
+        this.pstate.closeMobileMenu();
+        if (window.innerWidth >= 640) {
+            $("#bgroup").show();
+        } else {
+            $("#bgroup").hide();
+        }
+        $(this.mobilemenu?.nativeElement).on('click', e => {
+            if (!$("#bgroup").is(":animated")) {
+                if (this.pstate.isMobileMenuOpened()) {
+                    this.pstate.closeMobileMenu();
+                    $("#bgroup").hide(500);
+                } else {
+                    this.pstate.openMobileMenu();
+                    $("#bgroup").show(500);
+                }
+            }
+        });
+    }
+
+    public ngAfterViewInit(): void {
+        this.init();
+        $(window).on('resize', e => {
+            this.init();
+        });
     }
 
     public showPopUp(): void {
@@ -126,7 +177,7 @@ export class DrupalDescription {
     styleUrls: [ "./popUp/popUp.component.css" ]
 })
 export class PopUp {
-    constructor(private router: Router, private elementRef: ElementRef, public pstate: PopupState) {
+    constructor(private router: Router, private elementRef: ElementRef, public pstate: MobXStates) {
 
     }
 

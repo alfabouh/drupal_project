@@ -8,16 +8,19 @@
           <div class="justify-center">
             <div class="md:h-32">
               <div id="content" class="lg:flex items-center">
-                <img src="/assets/img/drupal-coder.svg" alt="Логотип" id="logo" class="w-auto h-8 mr-4">
-                <div>
-                  <head-button link=".section_support" innerText="ПОДДЕРЖКА DRUPAL"></head-button>
-                  <head-button innerText="АДМИНИСТРИРОВАНИЕ" menuId="#menu1"></head-button>
-                  <head-button link=".section_footer" innerText="ПРОДВИЖЕНИЕ"></head-button>
-                  <head-button link=".section_footer" innerText="РЕКЛАМА"></head-button>
-                  <head-button innerText="О НАС" menuId="#menu2"></head-button>
-                  <head-button link=".section_tariffs" innerText="ТАРИФЫ"></head-button>
-                  <head-button link=".section_cases" innerText="ПРОЕКТЫ"></head-button>
-                  <head-button link=".section_footer" innerText="КОНТАКТЫ"></head-button>
+                <img href="/" class="hidden sm:block transform translate-x-[12%] scale-[124%] translate-y-[-15%] w-auto mr-4" src="/assets/img/drupal-coder.svg" alt="Логотип" id="logo">
+                <div id="bgroup" class="mb-[48px] sm:mb-[0px]">
+                  <head-button class="inline" link=".section_support" innerText="ПОДДЕРЖКА DRUPAL"></head-button>
+                  <head-button class="inline" innerText="АДМИНИСТРИРОВАНИЕ" menuId="#menu1"></head-button>
+                  <head-button class="inline" link=".section_footer" innerText="ПРОДВИЖЕНИЕ"></head-button>
+                  <head-button class="inline" link=".section_footer" innerText="РЕКЛАМА"></head-button>
+                  <head-button class="inline" innerText="О НАС" menuId="#menu2"></head-button>
+                  <head-button class="inline" link=".section_tariffs" innerText="ТАРИФЫ"></head-button>
+                  <head-button class="inline" link=".section_cases" innerText="ПРОЕКТЫ"></head-button>
+                  <head-button class="inline" link=".section_footer" innerText="КОНТАКТЫ"></head-button>
+                </div>
+                <div class="sm:hidden fixed right-0 bottom-1">
+                  <img class="w-[32px] h-[32px] transform translate-x-[-12px]" src="/assets/img/burger-menu.png" #mobilemenu>
                 </div>
                 <button-menu id="menu1" [menuSection]="['МИГРАЦИЯ', 'БЭКАПЫ', 'АУДИТ БЕЗОПАСНОСТИ', 'ОПТИМИЗАЦИЯ СКОРОСТИ', 'ПЕРЕЕЗД НА HTTPS']" [sectionLink]="['/', '/', '/', '/', '/']" #buttonMenu></button-menu>
                 <button-menu id="menu2" [menuSection]="['КОМАНДА', 'DRUPALGIVE', 'КУРСЫ DRUPAL', 'ВАКАНСИИ']" [sectionLink]="['/', '/', '/', '/']" #buttonMenu></button-menu>

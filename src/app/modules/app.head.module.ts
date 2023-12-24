@@ -3,7 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { HeaderComponent, HeadButton, DrupalDescription, MenuButton, PopUp } from "../components/site/header/header.component";
 import { FormsModule } from "@angular/forms";
 import { FooterModule } from "./app.footer.module";
-import { PopupState } from "../components/site/service/popup";
+import { MobXStates } from "../components/site/service/stetemobx";
 
 @NgModule({
     imports: [
@@ -18,7 +18,7 @@ import { PopupState } from "../components/site/service/popup";
         MenuButton,
         PopUp
     ],
-    providers: [PopupState],
+    providers: [MobXStates],
     exports: [HeaderComponent]
 })
 export class HeadModule {

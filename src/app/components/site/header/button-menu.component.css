@@ -17,6 +17,31 @@
     padding-bottom: 4px;
 }
 
+#mobile-block {
+    width: 100%;
+    border-top: 1px solid rgb(59, 59, 59);
+}
+
+.section2 {
+    width: 100%;
+    color: #ec8578;
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: 10px; /* 83.333% */
+    letter-spacing: 0.72px;
+    text-transform: uppercase;
+    padding-bottom: 16px;
+    padding-top: 16px;
+}
+
 .section:hover {
     background-color: rgb(0, 0, 0, 0.25);
+}
+
+@media only screen and (min-width: 640px) {
+    .section {
+
+    }
 }

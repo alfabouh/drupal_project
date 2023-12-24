@@ -3,7 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 
 import { FormsModule } from "@angular/forms";
 import { FooterComponent, FooterContactComponent } from "../components/site/footer/footer.component";
-import { PopupState } from "../components/site/service/popup";
+import { MobXStates } from "../components/site/service/stetemobx";
 
 @NgModule({
     imports: [
@@ -18,7 +18,7 @@ import { PopupState } from "../components/site/service/popup";
         FooterComponent, 
         FooterContactComponent
     ],
-    providers: [PopupState]
+    providers: [MobXStates]
 })
 export class FooterModule {
 }

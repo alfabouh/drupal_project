@@ -70,6 +70,7 @@ $(() => {
             camera.updateProjectionMatrix();
             renderer.setSize(getWinWidth(), getWinHeight());
         });
+        scene.clear();
         updatePlanes();
     });
     renderTarget = new ThreeJs.WebGLRenderTarget(getWinWidth(), getWinHeight());

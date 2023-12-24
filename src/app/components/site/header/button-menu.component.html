@@ -1,9 +1,24 @@
-<div class="fixed z-[5] py-[5px]" id="block">
-    <ng-container *ngFor="let item of menuSection; let i = index">
-        <a [href]="sectionLink[i]">
-            <div class="z-[10] section p-[10px]"> 
-                {{ item }} 
-            </div> 
-        </a>
-    </ng-container>
-</div>
+<ng-container *ngIf='isMobile(); else onElse'>
+    <div class="relative z-[5]" id="">
+        <ng-container *ngFor="let item of menuSection; let i = index">
+            <a [href]="sectionLink[i]"> 
+                <div id="mobile-block">
+                    <div class="ml-[25px] z-[10] section2 p-[10px]"> 
+                        {{ item }} 
+                    </div> 
+                </div>               
+            </a>
+        </ng-container>
+    </div>
+</ng-container>
+<ng-template #onElse>
+    <div class="fixed z-[5] py-[5px]" id="block">
+        <ng-container *ngFor="let item of menuSection; let i = index">
+            <a [href]="sectionLink[i]">
+                <div class="z-[10] section p-[10px]"> 
+                    {{ item }} 
+                </div> 
+            </a>
+        </ng-container>
+    </div>
+</ng-template>
