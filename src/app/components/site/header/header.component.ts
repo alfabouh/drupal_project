@@ -70,7 +70,7 @@ export class HeadButton {
                 $(this.menuId).hide(100);
             });
             $(window).on('scroll', e => {
-                $(this.menuId).hide(100);
+                $(this.elementRef.nativeElement).trigger("mouseleave");
             });
         }
     }

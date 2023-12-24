@@ -51,11 +51,11 @@
 
 @media only screen and (min-width: 1024px) {
     #imblock {
-        width: 330px;
+        width: 320px;
         height: 475px;
     }
     #inner-img {
-        width: 330px;
+        width: 320px;
         height: 215px;
     }
 }
