@@ -15,6 +15,7 @@
     flex-shrink: 0;
     border-radius: 5px;
     border: 1px solid rgb(5, 12, 51, 0.2);
+    margin-top: -20px;
 }
 
 #block6 button span {
@@ -53,6 +54,20 @@
     #block6 button {
         width: 260px;
         height: 60px;
+        margin-top: 0px;
+        margin-bottom: 160px;
     }
     
+}
+
+@media only screen and (max-width: 1024px) {
+    #block6 {
+    margin-bottom: 700px;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    #block6 {
+        margin-bottom: 30px;
+    }
 }

@@ -1,6 +1,6 @@
 #inner-block {
-    width: 420px;
-    margin-left: 128px;
+    width: 270px;
+    margin-left: 25px;
 }
 
 #title {
@@ -15,7 +15,7 @@
 }
 
 #desc {
-    height: 46px;
+    height: 49px;
     flex-shrink: 0;
     color: var(--main-black, #050C33);
     font-family: Montserrat;
@@ -24,4 +24,12 @@
     font-weight: 500;
     line-height: normal;
     opacity: 0.5;
+}
+
+@media only screen and (min-width: 640px) {
+    #inner-block {
+        width: 420px;
+        margin-left: 128px;
+    }
+    
 }
