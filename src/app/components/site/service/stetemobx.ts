@@ -4,7 +4,7 @@ export class MobXStates {
     @observable
     public popupState: number = -1;
     @observable
-    public isShown: boolean = false;
+    public isShownPopup: boolean = false;
     @observable
     public mobileMenuOpened: boolean = false;
 
@@ -26,14 +26,18 @@ export class MobXStates {
         return this.mobileMenuOpened;
     }
 
+    public isPopupShown(): boolean {
+        return this.isShownPopup;
+    }
+
     @action
     public show(): void {
-        this.isShown = true;
+        this.isShownPopup = true;
     }
 
     @action
     public hide(): void {
-        this.isShown = false;
+        this.isShownPopup = false;
         this.popupState = -1;
     }
 

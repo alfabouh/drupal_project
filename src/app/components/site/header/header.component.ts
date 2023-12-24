@@ -119,6 +119,14 @@ export class HeaderComponent {
     @ViewChild('mobilemenu') mobilemenu: ElementRef | null = null;
 
     constructor(private router: Router, public pstate: MobXStates) {
+        this.router.events.subscribe((event) => {
+            if (event instanceof NavigationEnd) {
+              const currentRoute = event.urlAfterRedirects;
+                if (currentRoute == "/") {
+                    this.pstate.hide();
+                }
+            }
+        });
     }
 
     public ngOnInit(): void {
@@ -143,6 +151,10 @@ export class HeaderComponent {
                 }
             }
         });
+    }
+
+    public isPopupShown(): boolean {
+        return this.pstate.isPopupShown();
     }
 
     public ngAfterViewInit(): void {
@@ -189,7 +201,7 @@ export class PopUp {
                 'opacity': currOpacity + 0.03
             });
         }
-        if (!this.pstate.isShown) {
+        if (!this.pstate.isPopupShown()) {
             this.animationHide();
             cancelAnimationFrame(id);
         }
