@@ -17,15 +17,16 @@ export const fOutputShader = `
         vec4 color2 = texture2D(texture2, verUv);
         float dist = distance(verUv, vec2(0.5));
         float vignetteStrength = 0.65;
+
         float vignetteFactor = smoothstep(0.0, vignetteStrength, dist);
         vec4 color = (color1 + color2);
-        vec4 outColor = vec4(vec3(color.r, color.g, color.b) * vignetteFactor, 1.0);
+        vec4 outColor = vec4(vec3(color.r, color.g, color.b) * (1.0 - vignetteFactor), 1.0);
 
         float fromMouseDistance = distance(verUv, mouse);
         float fct = smoothstep(0., .2, fromMouseDistance);
         outColor = vec4(vec3(outColor.r, outColor.g, outColor.b) * vec3(1.0, fct, 1.0), 1.);
 
-        gl_FragColor = outColor * vec4(1., 3., 1., 1.);
+        gl_FragColor = outColor;
     }
 `;
 

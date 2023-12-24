@@ -69,6 +69,9 @@ export class HeadButton {
             $(this.elementRef.nativeElement).on("mouseleave", (e) => {
                 $(this.menuId).hide(100);
             });
+            $(window).on('scroll', e => {
+                $(this.menuId).hide(100);
+            });
         }
     }
 
