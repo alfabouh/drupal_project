@@ -119,14 +119,6 @@ export class HeaderComponent {
     @ViewChild('mobilemenu') mobilemenu: ElementRef | null = null;
 
     constructor(private router: Router, public pstate: MobXStates) {
-        this.router.events.subscribe((event) => {
-            if (event instanceof NavigationEnd) {
-              const currentRoute = event.urlAfterRedirects;
-                if (currentRoute == "/") {
-                    this.pstate.hide();
-                }
-            }
-        });
     }
 
     public ngOnInit(): void {
@@ -222,8 +214,7 @@ export class PopUp {
             this.router.navigate(['/']);
         }
     }
-
-
+    
     public ngOnInit(): void {
         this.pstate.show();
         $(this.elementRef.nativeElement).css({
